@@ -9,9 +9,9 @@ export default function Footer() {
       { name: 'Bharat QR & UPI', href: '/products/BharatQR-UPI' },
     ],
     platforms: [
-      { name: 'PerseusPay', href: '/' },
-      { name: 'VISTA', href: '/' },
-      { name: 'Europa', href: '/' },
+      { name: 'PerseusPay', href: '/products#perseuspay' },
+      { name: 'VISTA', href: '/products#vista' },
+      { name: 'Europa', href: '/products#europa' },
     ],
     solutions: [
       { name: 'Merchant Onboarding', href: '/solutions' },

@@ -1,12 +1,10 @@
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
 import Link from 'next/link'
 import { ArrowRight, Repeat, CreditCard, Layers, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata = {
-  title: 'Products | Paynext',
-  description: 'Explore Paynext\'s comprehensive payment solutions - PerseusPay, VISTA, and Europa platforms.',
+  title: 'Products | PayNext',
+  description: 'Explore PayNext\'s comprehensive payment solutions - PerseusPay, VISTA, and Europa platforms.',
 }
 
 const products = [
@@ -25,7 +23,7 @@ const products = [
       'Detailed transaction analytics',
       'Configurable business rules engine',
     ],
-    href: '/products/perseuspay',
+    href: '/contact',
     color: 'from-blue-500 to-cyan-500',
   },
   {
@@ -43,7 +41,7 @@ const products = [
       'Mobile wallet integration',
       'Customer self-service portal',
     ],
-    href: '/products/vista',
+    href: '/contact',
     color: 'from-primary to-blue-500',
   },
   {
@@ -61,7 +59,7 @@ const products = [
       'Real-time performance analytics',
       'Customizable workflow builder',
     ],
-    href: '/products/europa',
+    href: '/contact',
     color: 'from-accent to-orange-500',
   },
 ]
@@ -69,7 +67,6 @@ const products = [
 export default function ProductsPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">
@@ -158,7 +155,7 @@ export default function ProductsPage() {
               Ready to Get Started?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Contact our team to learn how Paynext can transform your payment infrastructure.
+              Contact our team to learn how PayNext can transform your payment infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">

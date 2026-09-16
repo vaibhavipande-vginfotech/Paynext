@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Navbar from "@/components/navbar";
 import {
   ArrowRight,
   CheckCircle2,
@@ -19,7 +18,6 @@ import { Button } from "@/components/ui/button";
 export default function NETCPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">

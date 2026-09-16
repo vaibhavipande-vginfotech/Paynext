@@ -1,5 +1,3 @@
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
 import Image from 'next/image'
 import { Shield, Target, Eye, Award, Globe, Building2, Zap, Cpu, BarChart3 } from 'lucide-react'
 
@@ -127,7 +125,6 @@ function MemberAvatar({ name, image }) {
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
 
       {/* Hero */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">

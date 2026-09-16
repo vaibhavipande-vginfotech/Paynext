@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { useRef, useEffect, useState } from "react"
-import Navbar from "@/components/navbar"
 import {
   ArrowRight,
   Zap,
@@ -179,7 +178,7 @@ const ProductModal = ({ product, onClose }) => {
           </ul>
 
           <div className="mt-8 flex justify-end">
-            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600">
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600  text-white">
               <Link href="/contact" onClick={onClose}>
                 Request Demo
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -352,7 +351,6 @@ export default function HomePage() {
         style={{ scaleX }}
       />
 
-      <Navbar />
 
       {/* Modal */}
       {selectedProduct && (
@@ -449,7 +447,7 @@ export default function HomePage() {
           >
             <Button asChild size="lg" className="group relative overflow-hidden text-base px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 border-0">
               <Link href="/contact">
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-2 text-white">
                   Request Demo
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -855,7 +853,7 @@ export default function HomePage() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
               <Button asChild size="lg" className="group relative overflow-hidden text-lg px-10 py-7 bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 border-0">
                 <Link href="/contact">
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10 flex items-center gap-2  text-white">
                     Book a Demo
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>

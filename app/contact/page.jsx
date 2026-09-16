@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from 'react'
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
 import { MapPin, Mail, Clock, Send, Building2, Globe, Phone, MessageSquare } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -54,7 +52,6 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">

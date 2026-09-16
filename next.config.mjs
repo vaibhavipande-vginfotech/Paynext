@@ -5,7 +5,7 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  allowedDevOrigins: ['10.200.11.53'],
+  allowedDevOrigins: ['10.200.11.8', '10.200.11.*'],
 };
 
 export default nextConfig;

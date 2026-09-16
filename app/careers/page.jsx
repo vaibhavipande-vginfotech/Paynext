@@ -1,13 +1,11 @@
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Clock, Briefcase, Users, Heart, Rocket, Coffee, GraduationCap, Shield, TrendingUp, Code, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 
 export const metadata = {
-  title: 'Careers | Paynext',
-  description: 'Join the Paynext team and help build the future of payment technology.',
+  title: 'Careers | PayNext',
+  description: 'Join the PayNext team and help build the future of payment technology.',
 }
 
 // Updated why work with us section
@@ -24,7 +22,6 @@ const departments = ['Engineering', 'Product', 'Risk', 'Compliance', 'Sales']
 export default function CareersPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">
@@ -112,7 +109,7 @@ export default function CareersPage() {
               Send us your resume and let's start a conversation.
             </p>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link href="mailto:careers@paynext.com">
+              <Link href="mailto:careers@paynext.co.in">
                 Send Your Resume
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>

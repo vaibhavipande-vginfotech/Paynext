@@ -1,13 +1,11 @@
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
 import Link from 'next/link'
 import { ArrowRight, HelpCircle, CheckCircle2, Building2, Cloud, Shield, Calendar, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 export const metadata = {
-  title: 'FAQ | Paynext',
-  description: 'Frequently asked questions about Paynext payment solutions and services.',
+  title: 'FAQ | PayNext',
+  description: 'Frequently asked questions about PayNext payment solutions and services.',
 }
 
 // Enterprise FAQ Highlights
@@ -51,12 +49,12 @@ const faqCategories = [
     icon: HelpCircle,
     questions: [
       {
-        question: 'What is Paynext?',
-        answer: 'Paynext is a certified Payment Technology Service Provider that delivers next-generation payment switching, card management, and orchestration platforms to banks and fintech companies. We help financial institutions modernize their payment infrastructure with secure, scalable, and innovative solutions.',
+        question: 'What is PayNext?',
+        answer: 'PayNext is a certified Payment Technology Service Provider that delivers next-generation payment switching, card management, and orchestration platforms to banks and fintech companies. We help financial institutions modernize their payment infrastructure with secure, scalable, and innovative solutions.',
       },
       {
-        question: 'What certifications does Paynext hold?',
-        answer: 'Paynext is PCI DSS certified, PA DSS compliant, ISO 27001 certified for information security management. These certifications ensure that we meet the highest security and compliance standards in the payment industry.',
+        question: 'What certifications does PayNext hold?',
+        answer: 'PayNext is PCI DSS certified, PA DSS compliant, ISO 27001 certified for information security management. These certifications ensure that we meet the highest security and compliance standards in the payment industry.',
       },
       {
         question: 'Which regions do you serve?',
@@ -127,7 +125,6 @@ const faqCategories = [
 export default function FAQPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">

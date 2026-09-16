@@ -105,7 +105,7 @@ export default function Navbar() {
             <Link href="/" className="-m-1.5 p-1.5 group">
               <div className="flex items-center gap-2">
                 <img 
-                  src="/logo.png" 
+                  src="/Logo.png" 
                   alt="PayNext Logo" 
                   className="h-10 w-auto brightness-0 invert" 
                 />
@@ -259,7 +259,7 @@ export default function Navbar() {
                   >
                     <div className="flex items-center gap-2">
                       <img
-                        src="/logo.png"
+                        src="/Logo.png"
                         alt="PayNext Logo"
                         className="h-12 w-auto brightness-0 invert"
                       />

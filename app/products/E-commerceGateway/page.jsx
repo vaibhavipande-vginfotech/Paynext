@@ -1,11 +1,9 @@
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
 import Link from 'next/link'
 import { ArrowRight, Globe, CheckCircle2, CreditCard, Shield, RefreshCw, FileText, Headphones, Monitor, QrCode } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata = {
-  title: 'E-Commerce Gateway | Paynext',
+  title: 'E-Commerce Gateway | PayNext',
   description: 'Instant & hassle-free online payment solutions. Secure, real-time transactions with best-in-class fraud detection for your e-commerce business.',
 }
 
@@ -36,7 +34,6 @@ const featureIcons = {
 export default function EcommerceGatewayPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">

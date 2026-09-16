@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Navbar from "@/components/navbar";
 import {
   ArrowRight,
   CheckCircle2,
@@ -41,20 +40,20 @@ const coreSolutions = [
   },
   {
     icon: "🛣️",
-    title: "NETC", // Changed from "NETC Switching"
-    desc: "NPCI-certified NETC switching solutions for FASTag issuance...",
+    title: "NETC",
+    desc: "NPCI-certified NETC switching for FASTag issuance and acquiring. Enable seamless electronic toll collection with real-time authorization, reconciliation, and settlement across the national tolling network.",
     gradient: "from-orange-500 to-red-500",
   },
   {
     icon: "🚇",
-    title: "NCMC", // Changed from "NCMC Solutions"
-    desc: "Power next-generation mobility payments with NCMC switching...",
+    title: "NCMC",
+    desc: "Power next-generation mobility payments with NCMC switching. One interoperable card for transit, retail, and toll — with contactless acceptance, offline support, and RuPay-compliant processing.",
     gradient: "from-indigo-500 to-purple-500",
   },
   {
     icon: "🏧",
     title: "ATM Switching",
-    desc: "Modernize your ATM network with secure, scalable...",
+    desc: "Modernize your ATM network with secure, scalable switching. High-availability transaction routing, EMV and PIN management, dispute handling, and end-to-end reconciliation for banks and white-label operators.",
     gradient: "from-cyan-500 to-blue-500",
   },
 ];
@@ -81,7 +80,6 @@ const additionalSolutions = [
   "BBPS Support",
 ];
 
-// Updated contact info - matching careers page style
 const contactInfo = [
   {
     icon: Building2,
@@ -105,7 +103,6 @@ const contactInfo = [
 export default function SolutionsPage() {
   return (
     <main className="min-h-screen">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">

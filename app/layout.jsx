@@ -8,28 +8,28 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
-  title: 'Paynext - Modern Payment Infrastructure for Global Commerce',
+  title: 'PayNext - Modern Payment Infrastructure for Global Commerce',
   description:
-    'Paynext provides unified payment processing, intelligent routing, and enterprise-grade switching solutions for businesses seeking reliable, scalable payment infrastructure.',
+    'PayNext provides unified payment processing, intelligent routing, and enterprise-grade switching solutions for businesses seeking reliable, scalable payment infrastructure.',
   keywords:
     'payment gateway, payment processing, payment infrastructure, merchant services, online payments, payment orchestration, fintech solutions, B2B payments',
-  authors: [{ name: 'Paynext' }],
+  authors: [{ name: 'PayNext' }],
   robots: 'index, follow',
   openGraph: {
-    title: 'Paynext - Modern Payment Infrastructure',
+    title: 'PayNext - Modern Payment Infrastructure',
     description:
       'Enterprise-grade payment switching and processing solutions for modern businesses.',
     type: 'website',
-    url: 'https://paynext.com',
-    siteName: 'Paynext',
+    url: 'https://paynext.co.in',
+    siteName: 'PayNext',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Paynext - Modern Payment Infrastructure',
+    title: 'PayNext - Modern Payment Infrastructure',
     description:
       'Enterprise-grade payment switching and processing solutions for modern businesses.',
   },
-  metadataBase: new URL('https://paynext.com'),
+  metadataBase: new URL('https://paynext.co.in'),
   alternates: {
     canonical: '/',
   },
