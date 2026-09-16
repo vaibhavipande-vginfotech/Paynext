@@ -159,10 +159,12 @@ export default function Navbar() {
                 <button
                   className="flex items-center gap-x-1.5 text-sm font-medium text-gray-300 hover:text-white transition-colors"
                   onClick={() => setProductsOpen(!productsOpen)}
+                  aria-expanded={productsOpen}
+                  aria-haspopup="true"
                 >
                   Products
                   <ChevronDown
-                    className={`h-4 w-4 flex-shrink-0 transition-transform duration-200 `}
+                    className={`h-4 w-4 flex-shrink-0 transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
                     aria-hidden="true"
                   />
                 </button>
@@ -304,10 +306,11 @@ export default function Navbar() {
                     <button
                       className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
                       onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                      aria-expanded={mobileProductsOpen}
                     >
                       <span>Products</span>
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-200`}
+                        className={`h-4 w-4 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`}
                       />
                     </button>
 

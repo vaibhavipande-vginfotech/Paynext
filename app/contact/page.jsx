@@ -42,10 +42,22 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const { name, email, company, phone, interest, message } = formState
+    const subject = `New enquiry from ${name || 'PayNext website'}`
+    const body = [
+      `Name: ${name}`,
+      `Work Email: ${email}`,
+      `Organisation: ${company || '-'}`,
+      `Phone: ${phone || '-'}`,
+      `Interested in: ${interest || '-'}`,
+      '',
+      'Message:',
+      message,
+    ].join('\n')
+    window.location.href = `mailto:info@paynext.co.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setIsSubmitting(false)
     setIsSubmitted(true)
   }
@@ -94,10 +106,12 @@ export default function ContactPage() {
                   <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
                     <Send className="w-8 h-8 text-green-500" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Message Sent!</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Your email is ready</h3>
                   <p className="text-muted-foreground">
-                    Thank you for reaching out. Our team will get back to you at{' '}
-                    <strong className="text-foreground">info@paynext.co.in</strong> within 24–48 hours.
+                    Your email app should have opened with your message pre-filled — just hit send.
+                    If it didn't open, email us directly at{' '}
+                    <a href="mailto:info@paynext.co.in" className="text-primary font-semibold hover:underline">info@paynext.co.in</a>.
+                    We reply within 24–48 hours.
                   </p>
                 </div>
               ) : (

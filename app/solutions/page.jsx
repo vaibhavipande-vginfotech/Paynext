@@ -101,6 +101,26 @@ const contactInfo = [
 // ── COMPONENT ─────────────────────────────────────────────────────────────────
 
 export default function SolutionsPage() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const get = (k) => data.get(k) || "";
+    const subject = `New enquiry from ${get("name") || "PayNext solutions page"}`;
+    const body = [
+      `Name: ${get("name")}`,
+      `Work Email: ${get("email")}`,
+      `Organisation: ${get("company") || "-"}`,
+      `Phone: ${get("phone") || "-"}`,
+      `Interested in: ${get("interest") || "-"}`,
+      "",
+      "Message:",
+      get("message"),
+    ].join("\n");
+    window.location.href = `mailto:info@paynext.co.in?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <main className="min-h-screen">
 
@@ -522,7 +542,7 @@ export default function SolutionsPage() {
                 within 24–48 hours.
               </p>
 
-              <form action="https://formspree.io/f/your-form-id" method="POST">
+              <form onSubmit={handleSubmit}>
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>

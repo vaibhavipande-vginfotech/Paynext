@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { Mail, MapPin, Phone, Globe, Shield, Award, Sparkles, ArrowRight, Facebook, Twitter, Linkedin, Instagram, Github } from 'lucide-react'
+import { Mail, MapPin, Phone, Globe, Shield, Award, Sparkles, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import NewsletterForm from '@/components/newsletter-form'
 
 export default function Footer() {
   const navigation = {
@@ -190,17 +191,7 @@ export default function Footer() {
               <h3 className="text-white font-semibold mb-2">Stay Updated</h3>
               <p className="text-sm text-gray-400">Get the latest updates on payment technology and industry insights.</p>
             </div>
-            <div className="flex gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
-              />
-              <button className="px-6 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center gap-2 group">
-                Subscribe
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
 
