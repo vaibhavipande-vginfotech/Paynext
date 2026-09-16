@@ -8,26 +8,28 @@ export const metadata = {
 }
 
 const features = [
-  'Supports Card Schemes like RUPAY, MasterCard, Visa and American Express',
-  'On Us Connectivity',
+  'Supports Card Schemes: RuPay, MasterCard, Visa & American Express',
+  'Multiple Payment Modes — Cards, Net Banking, UPI & Wallets',
   'PCI-DSS Certified Infrastructure',
-  'Inter-Change Calculation',
+  'Best-in-Class Fraud Detection & Prevention',
+  'Tokenization & End-to-End Encryption',
+  'Seamless, Localised Checkout Experience',
   'Reconciliation & Settlement',
-  'Merchant Payments',
-  'Smart Dispute Management',
-  'Field Services & Terminal Deployment',
+  'Smart Dispute & Chargeback Management',
+  'Developer-Friendly APIs & SDKs',
   'Customer Support',
 ]
 
 const featureIcons = {
-  'Supports Card Schemes like RUPAY, MasterCard, Visa and American Express': CreditCard,
-  'On Us Connectivity': Shield,
+  'Supports Card Schemes: RuPay, MasterCard, Visa & American Express': CreditCard,
+  'Multiple Payment Modes — Cards, Net Banking, UPI & Wallets': QrCode,
   'PCI-DSS Certified Infrastructure': Shield,
-  'Inter-Change Calculation': RefreshCw,
+  'Best-in-Class Fraud Detection & Prevention': Shield,
+  'Tokenization & End-to-End Encryption': Shield,
+  'Seamless, Localised Checkout Experience': Globe,
   'Reconciliation & Settlement': FileText,
-  'Merchant Payments': CreditCard,
-  'Smart Dispute Management': Shield,
-  'Field Services & Terminal Deployment': Monitor,
+  'Smart Dispute & Chargeback Management': RefreshCw,
+  'Developer-Friendly APIs & SDKs': Monitor,
   'Customer Support': Headphones,
 }
 

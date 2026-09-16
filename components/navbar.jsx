@@ -67,6 +67,16 @@ export default function Navbar() {
     };
   }, []);
 
+  // Close the products dropdown on Escape (keyboard accessibility)
+  useEffect(() => {
+    if (!productsOpen) return;
+    const handleKey = (e) => {
+      if (e.key === "Escape") setProductsOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [productsOpen]);
+
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {

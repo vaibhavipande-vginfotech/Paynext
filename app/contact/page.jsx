@@ -119,8 +119,10 @@ export default function ContactPage() {
                   <FieldGroup>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <Field>
-                        <FieldLabel>Full Name</FieldLabel>
+                        <FieldLabel htmlFor="contact-name">Full Name</FieldLabel>
                         <Input
+                          id="contact-name"
+                          name="name"
                           placeholder="John Doe"
                           value={formState.name}
                           onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -128,8 +130,10 @@ export default function ContactPage() {
                         />
                       </Field>
                       <Field>
-                        <FieldLabel>Work Email</FieldLabel>
+                        <FieldLabel htmlFor="contact-email">Work Email</FieldLabel>
                         <Input
+                          id="contact-email"
+                          name="email"
                           type="email"
                           placeholder="john@yourbank.com"
                           value={formState.email}
@@ -140,16 +144,20 @@ export default function ContactPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <Field>
-                        <FieldLabel>Organisation Name</FieldLabel>
+                        <FieldLabel htmlFor="contact-company">Organisation Name</FieldLabel>
                         <Input
+                          id="contact-company"
+                          name="company"
                           placeholder="Your Bank / Fintech"
                           value={formState.company}
                           onChange={(e) => setFormState({ ...formState, company: e.target.value })}
                         />
                       </Field>
                       <Field>
-                        <FieldLabel>Phone Number</FieldLabel>
+                        <FieldLabel htmlFor="contact-phone">Phone Number</FieldLabel>
                         <Input
+                          id="contact-phone"
+                          name="phone"
                           type="tel"
                           placeholder="+91 98765 43210"
                           value={formState.phone}
@@ -158,9 +166,9 @@ export default function ContactPage() {
                       </Field>
                     </div>
                     <Field>
-                      <FieldLabel>I'm interested in</FieldLabel>
+                      <FieldLabel htmlFor="contact-interest">I'm interested in</FieldLabel>
                       <Select value={formState.interest} onValueChange={(value) => setFormState({ ...formState, interest: value })}>
-                        <SelectTrigger>
+                        <SelectTrigger id="contact-interest">
                           <SelectValue placeholder="Select a product or service" />
                         </SelectTrigger>
                         <SelectContent>
@@ -178,8 +186,10 @@ export default function ContactPage() {
                       </Select>
                     </Field>
                     <Field>
-                      <FieldLabel>Message</FieldLabel>
+                      <FieldLabel htmlFor="contact-message">Message</FieldLabel>
                       <Textarea
+                        id="contact-message"
+                        name="message"
                         placeholder="Tell us about your payment infrastructure requirements..."
                         rows={5}
                         value={formState.message}

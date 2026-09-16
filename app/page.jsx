@@ -226,7 +226,7 @@ export default function HomePage() {
   const stats = [
     { value: "₹18T+", label: "Transaction Volume", icon: BarChart3, description: "Processed across our infrastructure", color: "from-blue-400 to-cyan-500" },
     { value: "99.99%", label: "Platform Uptime", icon: Shield, description: "Enterprise-grade reliability SLA", color: "from-emerald-400 to-teal-500" },
-    { value: "7+", label: "Years in Operation", icon: Award, description: "Trusted fintech infrastructure partner", color: "from-purple-400 to-pink-500" },
+    { value: `${new Date().getFullYear() - 2017}+`, label: "Years in Operation", icon: Award, description: "Trusted fintech infrastructure partner", color: "from-purple-400 to-pink-500" },
     { value: "1 Week", label: "Avg. Implementation", icon: Zap, description: "Fast deployment, zero disruption", color: "from-orange-400 to-red-500" },
   ]
 

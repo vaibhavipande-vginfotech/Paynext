@@ -8,26 +8,26 @@ export const metadata = {
 }
 
 const features = [
-  'Supports Card Schemes like RUPAY, MasterCard, Visa and American Express',
-  'On Us Connectivity',
+  'Interoperable QR across RuPay, MasterCard & Visa',
+  'Dynamic & Static QR Codes — No POS Machine Required',
+  'UPI Collect & Intent Payment Flows',
+  'Instant Payment Confirmation & Notifications',
   'PCI-DSS Certified Infrastructure',
-  'Inter-Change Calculation',
   'Reconciliation & Settlement',
-  'Merchant Payments',
   'Smart Dispute Management',
-  'Field Services & Terminal Deployment',
+  'Merchant QR Onboarding & Management',
   'Customer Support',
 ]
 
 const featureIcons = {
-  'Supports Card Schemes like RUPAY, MasterCard, Visa and American Express': CreditCard,
-  'On Us Connectivity': Shield,
+  'Interoperable QR across RuPay, MasterCard & Visa': QrCode,
+  'Dynamic & Static QR Codes — No POS Machine Required': QrCode,
+  'UPI Collect & Intent Payment Flows': CreditCard,
+  'Instant Payment Confirmation & Notifications': RefreshCw,
   'PCI-DSS Certified Infrastructure': Shield,
-  'Inter-Change Calculation': RefreshCw,
   'Reconciliation & Settlement': FileText,
-  'Merchant Payments': CreditCard,
   'Smart Dispute Management': Shield,
-  'Field Services & Terminal Deployment': Monitor,
+  'Merchant QR Onboarding & Management': Monitor,
   'Customer Support': Headphones,
 }
 

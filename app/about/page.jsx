@@ -6,6 +6,9 @@ export const metadata = {
   description: 'Learn about PayNext — end-to-end digital and automated payment solutions ensuring connected and secure transactions. Based in Mumbai, India.',
 }
 
+const FOUNDED_YEAR = 2017
+const yearsInOperation = new Date().getFullYear() - FOUNDED_YEAR
+
 const values = [
   {
     icon: Shield,
@@ -38,6 +41,7 @@ const milestones = [
   { year: '2022', title: 'Europa Platform', description: 'Introduced Europa — dynamic multi-bank payment orchestration with API-based intelligent routing engine for improved authorization and cost optimization.' },
   { year: '2023', title: '₹18 Trillion Processed', description: 'Crossed ₹18 trillion in cumulative transaction volume processed. Grew to serve 12+ marquee client institutions across banking and fintech.' },
   { year: '2024', title: '7+ Years of Operations', description: 'Over 7 years of trusted infrastructure operations with 99.99% platform uptime and average implementation timeline of just 1 week.' },
+  { year: 'Today', title: `${yearsInOperation}+ Years & Counting`, description: `${yearsInOperation}+ years of trusted, bank-grade infrastructure operations — 99.99% uptime and go-live in about a week.` },
 ]
 
 
@@ -213,7 +217,7 @@ export default function AboutPage() {
             {[
               { value: '₹18T+', label: 'Transaction Volume Processed', icon: BarChart3 },
               { value: '99.99%', label: 'Platform Uptime SLA', icon: Shield },
-              { value: '7+', label: 'Years in Operation', icon: Award },
+              { value: `${yearsInOperation}+`, label: 'Years in Operation', icon: Award },
               { value: '1 Week', label: 'Average Implementation', icon: Zap },
             ].map((metric, index) => (
               <div key={index} className="bg-card border border-border rounded-2xl p-8 text-center">

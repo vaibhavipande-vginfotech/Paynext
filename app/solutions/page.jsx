@@ -546,10 +546,11 @@ export default function SolutionsPage() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="sol-name" className="block text-sm font-medium text-foreground mb-2">
                         Full Name
                       </label>
                       <input
+                        id="sol-name"
                         type="text"
                         name="name"
                         className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -558,10 +559,11 @@ export default function SolutionsPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="sol-email" className="block text-sm font-medium text-foreground mb-2">
                         Work Email
                       </label>
                       <input
+                        id="sol-email"
                         type="email"
                         name="email"
                         className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -572,10 +574,11 @@ export default function SolutionsPage() {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="sol-company" className="block text-sm font-medium text-foreground mb-2">
                         Organisation Name
                       </label>
                       <input
+                        id="sol-company"
                         type="text"
                         name="company"
                         className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -583,10 +586,11 @@ export default function SolutionsPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="sol-phone" className="block text-sm font-medium text-foreground mb-2">
                         Phone Number
                       </label>
                       <input
+                        id="sol-phone"
                         type="tel"
                         name="phone"
                         className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -595,10 +599,11 @@ export default function SolutionsPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="sol-interest" className="block text-sm font-medium text-foreground mb-2">
                       I'm interested in
                     </label>
                     <select
+                      id="sol-interest"
                       name="interest"
                       className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     >
@@ -615,10 +620,11 @@ export default function SolutionsPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="sol-message" className="block text-sm font-medium text-foreground mb-2">
                       Message
                     </label>
                     <textarea
+                      id="sol-message"
                       name="message"
                       rows={5}
                       className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
