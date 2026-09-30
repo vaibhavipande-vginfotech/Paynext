@@ -1,0 +1,366 @@
+{
+  "netc": {
+    "sourceTitle": "NETC ..",
+    "hero": [
+      "NPCI-certified NETC switching solutions by PayNext for FASTag issuance and acquiring across toll plazas and parking. Scalable, secure, and high-performance."
+    ],
+    "overview": [
+      "PayNext offers a robust and scalable NETC switching solution that enables seamless FASTag-based toll payments across National Highways, State Toll Plazas, and Parking ecosystems. As an NPCI-certified Technology Service Provider (TSP) for both Issuance and Acquiring, PayNext empowers banks, toll operators, and ecosystem partners with a fully compliant and high-performance transaction processing platform.",
+      "Our solution is designed to ensure real-time authorization, high transaction success rates, and efficient reconciliation, enabling a frictionless experience for both operators and end users."
+    ],
+    "capabilities": [
+      {
+        "title": "NETC Acquiring Switch",
+        "desc": "PayNext provides a fully compliant acquiring switch that connects toll plazas and parking operators to the NETC ecosystem.",
+        "bullets": [
+          "Integration with NPCI NETC central system",
+          "Real-time FASTag transaction processing",
+          "Multi-lane, high TPS (transactions per second) capability",
+          "Support for National & State Toll Plazas",
+          "Parking integration (malls, airports, smart city parking)"
+        ],
+        "note": null
+      },
+      {
+        "title": "NETC Issuance Switch",
+        "desc": "PayNext supports banks and issuers with a complete FASTag issuance switch solution.",
+        "bullets": [
+          "FASTag lifecycle management (issuance, activation, closure)",
+          "Wallet/account linking",
+          "Balance validation & debit processing",
+          "Tag status management (hotlist, blacklist, low balance alerts)",
+          "Integration with CBS / Wallet systems"
+        ],
+        "note": null
+      },
+      {
+        "title": "End-to-End Switching Platform",
+        "desc": "PayNext acts as a central switching layer between:",
+        "bullets": [
+          "Toll Plazas / Parking Operators",
+          "Acquiring Banks",
+          "Issuing Banks",
+          "NPCI NETC system"
+        ],
+        "note": "This ensures secure routing, transaction orchestration, and minimal latency."
+      },
+      {
+        "title": "Parking & Smart Mobility Integration",
+        "desc": "Beyond tolling, PayNext extends NETC capabilities to:",
+        "bullets": [
+          "Smart city parking solutions",
+          "Airport parking systems",
+          "Commercial parking operators",
+          "Closed-loop mobility ecosystems"
+        ],
+        "note": null
+      }
+    ],
+    "sections": [
+      {
+        "title": "Key Features",
+        "intro": null,
+        "bullets": [
+          "NPCI Certified for NETC Issuance & Acquiring",
+          "High Availability Architecture with 99.9%+ uptime",
+          "Real-time Transaction Processing",
+          "Scalable Infrastructure to handle peak toll traffic",
+          "Advanced Reconciliation Engine (T+0 / T+1 support)",
+          "Fraud & Risk Monitoring",
+          "API-driven Integration Framework",
+          "Centralized Monitoring & Alerts"
+        ]
+      },
+      {
+        "title": "Reconciliation & Settlement",
+        "intro": "PayNext provides a comprehensive reconciliation framework ensuring transparency and accuracy:",
+        "bullets": [
+          "Switch vs NPCI file reconciliation",
+          "Acquirer vs Issuer reconciliation",
+          "Automated exception handling",
+          "Detailed MIS & reporting dashboards",
+          "Support for dispute and chargeback workflows"
+        ]
+      },
+      {
+        "title": "Compliance & Security",
+        "intro": null,
+        "bullets": [
+          "Fully compliant with NPCI NETC guidelines",
+          "PCI-DSS compliant infrastructure",
+          "Secure data encryption & tokenization",
+          "Audit-ready reporting and logs"
+        ]
+      },
+      {
+        "title": "Why PayNext for NETC?",
+        "intro": null,
+        "bullets": [
+          "Certified TSP with deep ecosystem integration",
+          "Proven expertise in high-volume transaction switching",
+          "Unified platform supporting POS, UPI, NETC, NCMC, PG, Micro ATM",
+          "Faster go-live with ready integrations",
+          "Strong reconciliation & dispute management capabilities",
+          "Dedicated support for banks, toll operators, and aggregators"
+        ]
+      }
+    ],
+    "meta": null
+  },
+  "ncmc": {
+    "sourceTitle": "NCMC (National Common Mobility Card) Solutions",
+    "hero": [
+      "Power next-generation mobility payments with PayNext NCMC Switching Solutions.",
+      "Enable seamless, interoperable, and scalable transit ecosystems with a trusted NPCI-certified TSP."
+    ],
+    "overview": [
+      "PayNext provides a comprehensive NCMC switching platform enabling seamless, interoperable, and contactless payments across public transport, toll plazas, and parking ecosystems. As an NPCI-certified Technology Service Provider (TSP) for both Issuance and Acquiring, PayNext empowers banks, transit operators, and mobility partners with a high-performance, compliant, and scalable switching infrastructure.",
+      "Our platform supports real-time and offline (stored value) transactions, ensuring uninterrupted commuter experience even in low-connectivity environments."
+    ],
+    "capabilities": [
+      {
+        "title": "NCMC Acquiring Switch",
+        "desc": "A fully compliant acquiring switch connecting transit operators and acceptance infrastructure to the NCMC ecosystem.",
+        "bullets": [
+          "Integration with metro, bus, rail, toll, and parking systems",
+          "Support for offline & online transaction modes",
+          "High-speed processing for AFC (Automatic Fare Collection) environments",
+          "Multi-operator and multi-city interoperability",
+          "QR / card / hybrid acceptance support (where applicable)"
+        ],
+        "note": null
+      },
+      {
+        "title": "NCMC Issuance Switch",
+        "desc": "End-to-end switching solution for banks issuing NCMC cards (RuPay-based).",
+        "bullets": [
+          "Card lifecycle management (issuance, activation, blocking, renewal)",
+          "Integration with CBS / prepaid / wallet systems",
+          "Support for stored value (offline purse) and online account-based transactions",
+          "Hotlisting, balance checks, and transaction controls",
+          "Customer usage tracking and reporting"
+        ],
+        "note": null
+      },
+      {
+        "title": "NCMC — Section 3",
+        "desc": null,
+        "bullets": [],
+        "note": null,
+        "placeholder": true
+      },
+      {
+        "title": "Multi-Use Acceptance Ecosystem",
+        "desc": "Beyond transit, PayNext enables NCMC usage across:",
+        "bullets": [
+          "Toll Plazas (National & State Highways)",
+          "Parking (Airports, Malls, Smart Cities)",
+          "Retail acceptance (where enabled)",
+          "Integrated urban mobility ecosystems"
+        ],
+        "note": null
+      }
+    ],
+    "sections": [
+      {
+        "title": "Key Features",
+        "intro": null,
+        "bullets": [
+          "NPCI Certified for NCMC Issuance & Acquiring",
+          "Offline Transaction Capability (Stored Value)",
+          "Real-Time & Deferred Clearing Support",
+          "High Throughput for Peak Transit Loads",
+          "Interoperable Across Cities & Operators",
+          "Secure & Compliant Architecture (PCI-DSS aligned)",
+          "API-Driven Integration Framework",
+          "Centralized Monitoring & Alerts"
+        ]
+      },
+      {
+        "title": "Transaction Processing Modes",
+        "intro": null,
+        "bullets": []
+      },
+      {
+        "title": "Offline Mode (Transit Use Case)",
+        "intro": null,
+        "bullets": [
+          "Fast tap-and-go experience",
+          "Transactions stored locally and synced later",
+          "Ideal for metro/bus environments with high throughput"
+        ]
+      },
+      {
+        "title": "Online Mode",
+        "intro": null,
+        "bullets": [
+          "Real-time authorization via issuing bank",
+          "Used in tolls, parking, and retail scenarios"
+        ]
+      },
+      {
+        "title": "Reconciliation & Settlement",
+        "intro": "PayNext provides a robust reconciliation and settlement engine:",
+        "bullets": [
+          "Offline transaction clearing & batching",
+          "Switch vs NPCI reconciliation",
+          "Issuer vs Acquirer settlement validation",
+          "Exception management & reporting",
+          "Automated MIS and dashboards"
+        ]
+      },
+      {
+        "title": "Compliance & Security",
+        "intro": null,
+        "bullets": [
+          "Fully compliant with NPCI NCMC guidelines",
+          "EMV-based RuPay card standards",
+          "PCI-DSS compliant infrastructure",
+          "Secure encryption and transaction validation",
+          "Audit-ready logs and reporting"
+        ]
+      },
+      {
+        "title": "Why PayNext for NCMC?",
+        "intro": null,
+        "bullets": [
+          "Certified TSP for both Issuance & Acquiring",
+          "Proven expertise in high-volume switching (Transit + Toll + Payments)",
+          "Unified platform across NCMC, NETC, UPI, POS, Micro ATM, PG",
+          "Strong support for offline + online hybrid models",
+          "Faster deployment with ready integrations",
+          "Advanced reconciliation & dispute handling"
+        ]
+      },
+      {
+        "title": "Use Cases",
+        "intro": null,
+        "bullets": [
+          "Metro Rail Ticketing Systems",
+          "City Bus Transport Systems",
+          "Integrated Urban Mobility Projects",
+          "Toll & Parking Integration with NCMC",
+          "Bank-led NCMC Card Issuance Programs"
+        ]
+      }
+    ],
+    "meta": "Enable seamless transit payments with PayNext NCMC switching platform. NPCI-certified TSP for issuance & acquiring across metro, bus, toll, and parking"
+  },
+  "atm": {
+    "sourceTitle": "ATM Switching Solutions",
+    "hero": [
+      "Modernize your ATM network with PayNext Switching Solutions.",
+      "Enable secure, scalable, and interoperable ATM transaction processing with a trusted technology partner."
+    ],
+    "overview": [
+      "PayNext offers a robust, secure, and scalable ATM switching platform enabling banks and financial institutions to seamlessly manage and process transactions across on-us, off-us, and interoperable ATM networks.",
+      "As an OEM-compatible switching provider, PayNext integrates with all major ATM hardware vendors and software stacks, ensuring flexibility, faster deployment, and long-term scalability. Our platform is designed to deliver high availability, real-time processing, and regulatory compliance, making it ideal for modern banking ecosystems."
+    ],
+    "capabilities": [
+      {
+        "title": "ATM Transaction Switching",
+        "desc": "PayNext provides a high-performance ATM switch supporting all transaction types:",
+        "bullets": [
+          "Cash Withdrawal (On-us / Off-us)",
+          "Balance Inquiry",
+          "Mini Statement",
+          "PIN Change / PIN Generation",
+          "Fund Transfer (where enabled)",
+          "Value-added services"
+        ],
+        "note": "Supports domestic and interoperable transactions across networks."
+      },
+      {
+        "title": "Multi-Network Integration",
+        "desc": "Our switch enables seamless connectivity with:",
+        "bullets": [
+          "Card Networks (RuPay, Visa, Mastercard)",
+          "Interchange networks (as per bank integrations)",
+          "Sponsor / settlement banks"
+        ],
+        "note": "Ensuring interoperability and high transaction success rates."
+      },
+      {
+        "title": "OEM Compatibility (Key Differentiator)",
+        "desc": "PayNext ATM switch is OEM-agnostic and fully compatible with:",
+        "bullets": [
+          "NCR, Diebold Nixdorf, Hitachi, Vortex, and other ATM providers",
+          "Multiple ATM middleware systems",
+          "Legacy and modern ATM infrastructures"
+        ],
+        "note": "This ensures no vendor lock-in and smooth migration from existing systems."
+      },
+      {
+        "title": "ATM Monitoring & Management",
+        "desc": "Integrated capabilities for:",
+        "bullets": [
+          "Real-time ATM health monitoring",
+          "Transaction tracking and alerts",
+          "Downtime and fault management",
+          "Centralized dashboard for operations teams"
+        ],
+        "note": null
+      },
+      {
+        "title": "EMV & Security Compliance",
+        "desc": null,
+        "bullets": [
+          "EMV-compliant transaction processing",
+          "End-to-end encryption",
+          "PCI-DSS aligned infrastructure",
+          "Secure key management & HSM integration"
+        ],
+        "note": null
+      }
+    ],
+    "sections": [
+      {
+        "title": "Key Features",
+        "intro": null,
+        "bullets": [
+          "High Availability Architecture (99.9%+ uptime)",
+          "Real-Time Transaction Authorization",
+          "Scalable High TPS Processing",
+          "OEM-Agnostic Integration",
+          "Centralized Switch with Smart Routing",
+          "Advanced Logging & Audit Trails",
+          "API-Driven Integration Framework"
+        ]
+      },
+      {
+        "title": "Reconciliation & Settlement",
+        "intro": "PayNext provides a comprehensive reconciliation engine for ATM operations:",
+        "bullets": [
+          "On-us and off-us transaction reconciliation",
+          "Switch vs network reconciliation",
+          "Automated settlement tracking",
+          "Exception handling and reporting",
+          "Chargeback and dispute support"
+        ]
+      },
+      {
+        "title": "Fraud & Risk Management",
+        "intro": null,
+        "bullets": [
+          "Transaction monitoring rules",
+          "Velocity checks and limits",
+          "Suspicious activity alerts",
+          "Integration with bank fraud systems"
+        ]
+      },
+      {
+        "title": "Why PayNext for ATM Switching?",
+        "intro": null,
+        "bullets": [
+          "OEM-Compatible (Works with all major ATM vendors)",
+          "Proven expertise in high-volume transaction switching",
+          "Unified platform supporting ATM, POS, UPI, NETC, NCMC, Micro ATM, IPG",
+          "Faster deployment and seamless migration",
+          "Strong reconciliation & dispute management",
+          "Enterprise-grade security and compliance"
+        ]
+      }
+    ],
+    "meta": null
+  }
+}

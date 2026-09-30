@@ -1,37 +1,21 @@
 import Image from 'next/image'
-import { Shield, Target, Eye, Award, Globe, Building2, Zap, Cpu, BarChart3 } from 'lucide-react'
+import { Target, Eye, ShieldCheck, Zap, Search, Cpu, Check } from 'lucide-react'
+import { Container, Eyebrow, Reveal, IconTile } from '@/components/site/primitives'
+import { CountUp } from '@/components/site/motion'
+import PageHero from '@/components/site/page-hero'
+import CtaBand from '@/components/site/cta-band'
+import { about, brand, stats, statsExtra, clients, compliance } from '@/lib/site-content'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMeta("/about", {
   title: 'About Us | PayNext',
-  description: 'Learn about PayNext — end-to-end digital and automated payment solutions ensuring connected and secure transactions. Based in Mumbai, India.',
-}
+  description: about.intro,
+})
 
-const FOUNDED_YEAR = 2017
-const yearsInOperation = new Date().getFullYear() - FOUNDED_YEAR
+const valueIcons = [ShieldCheck, Zap, Search, Cpu]
 
-const values = [
-  {
-    icon: Shield,
-    title: 'Security First',
-    description: 'Every platform we build is PCI-DSS compliant by design — security is never an afterthought.',
-  },
-  {
-    icon: Zap,
-    title: 'Reliability & Performance',
-    description: '99.99% uptime SLA backed by cloud-native architecture with load balancing and instant failover.',
-  },
-  {
-    icon: Eye,
-    title: 'Transparency',
-    description: 'Transaction-level financial intelligence and full network cost visibility for every client.',
-  },
-  {
-    icon: Cpu,
-    title: 'Modular Innovation',
-    description: 'Mix-and-match platform capabilities — deploy what you need, scale when you grow.',
-  },
-]
-
+// Content from the current website — approved by the client (Sankar, 29 Sep 2026) for this
+// iteration; to be refined in the next iteration.
 const milestones = [
   { year: '2017', title: 'PayNext Founded', description: 'Incorporated in Mumbai with a vision to modernize institutional payment infrastructure and offer end-to-end digital payment solutions across India.' },
   { year: '2018', title: 'First Bank Partnership', description: 'Onboarded first commercial bank client. Launched POS / MPOS services across acquiring and card scheme networks including RuPay, Mastercard and Visa.' },
@@ -41,9 +25,7 @@ const milestones = [
   { year: '2022', title: 'Europa Platform', description: 'Introduced Europa — dynamic multi-bank payment orchestration with API-based intelligent routing engine for improved authorization and cost optimization.' },
   { year: '2023', title: '₹18 Trillion Processed', description: 'Crossed ₹18 trillion in cumulative transaction volume processed. Grew to serve 12+ marquee client institutions across banking and fintech.' },
   { year: '2024', title: '7+ Years of Operations', description: 'Over 7 years of trusted infrastructure operations with 99.99% platform uptime and average implementation timeline of just 1 week.' },
-  { year: 'Today', title: `${yearsInOperation}+ Years & Counting`, description: `${yearsInOperation}+ years of trusted, bank-grade infrastructure operations — 99.99% uptime and go-live in about a week.` },
 ]
-
 
 const team = [
   {
@@ -87,23 +69,6 @@ const promoters = [
   },
 ]
 
-const certifications = [
-  { title: 'PCI-DSS Compliant', description: 'Payment Card Industry Data Security Standard — certified infrastructure' },
-  { title: 'Visa & Mastercard', description: 'Designed to operate within Visa and Mastercard network ecosystems' },
-  { title: 'RuPay & NPCI', description: 'Native support for RuPay and NPCI ecosystems including UPI and Bharat QR' },
-  { title: 'Cloud-Native', description: 'Cloud, on-premise, and hybrid deployment architectures supported' },
-]
-
-const clientEcosystem = [
-  { category: 'Banks', clients: ['YES Bank', 'Federal Bank', 'RBL Bank', 'Goa State Co-operative Bank'] },
-  { category: 'Fintechs & Acquirers', clients: ['Pine Labs', 'CC Avenue', 'Cashfree', 'Mswipe', 'PayGlocal', 'Chalo', 'EnKash', 'Rapipay'] },
-]
-
-/**
- * Reusable member avatar:
- * - Shows <Image> when `image` path is provided
- * - Falls back to gradient initial avatar if image is null
- */
 function MemberAvatar({ name, image }) {
   if (image) {
     return (
@@ -113,7 +78,7 @@ function MemberAvatar({ name, image }) {
           alt={`Photo of ${name}`}
           width={80}
           height={80}
-          className="w-full h-full object-cover object-top"
+          className="avatar-img w-full h-full object-cover object-top"
         />
       </div>
     )
@@ -121,249 +86,133 @@ function MemberAvatar({ name, image }) {
 
   return (
     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0 ring-2 ring-primary/20">
-      <span className="text-2xl font-bold text-primary">{name.charAt(0)}</span>
+      <span className="text-2xl font-semibold text-primary">{name.charAt(0)}</span>
     </div>
   )
 }
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
+    <>
+      <PageHero eyebrow="PayNext" title="About" highlight="Us" lead={about.intro} />
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">About PayNext</span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Speed Is in Our DNA
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Payments at the Next Level
-              </span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              At PayNext, we offer end-to-end digital and automated payment solutions to ensure connected and secure transactions. Since time is the currency of the modern world, we offer the fastest possible cashless payment solutions to clients — managing complex solutions and handling both long and short processes effortlessly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-card border border-border rounded-3xl p-10">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Mission</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To enable banks and fintechs with unified switching, operational intelligence, and routing
-                infrastructure — delivering bank-grade reliability, transaction-level financial visibility,
-                and dynamic multi-bank optimization for institutions operating at scale.
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-3xl p-10">
-              <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-accent" />
-              </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Vision</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                To power secure, scalable, and intelligent payment ecosystems — becoming the most trusted
-                unified infrastructure partner for acquiring, issuance, and payment orchestration
-                across India and emerging markets.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Our Values</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">What Drives Us</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-8 text-center">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Metrics */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Trust & Scale</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">By the Numbers</h2>
-          </div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+      <section className="py-24">
+        <Container>
+          <Reveal className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">{brand.positioning}</Reveal>
+          <div className="mt-14 grid gap-5 md:grid-cols-2">
             {[
-              { value: '₹18T+', label: 'Transaction Volume Processed', icon: BarChart3 },
-              { value: '99.99%', label: 'Platform Uptime SLA', icon: Shield },
-              { value: `${yearsInOperation}+`, label: 'Years in Operation', icon: Award },
-              { value: '1 Week', label: 'Average Implementation', icon: Zap },
-            ].map((metric, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-8 text-center">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <metric.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-3xl font-bold text-foreground mb-2">{metric.value}</div>
-                <p className="text-sm text-muted-foreground">{metric.label}</p>
-              </div>
+              { icon: Eye, title: 'Vision', text: about.vision },
+              { icon: Target, title: 'Mission', text: about.mission },
+            ].map((b, i) => (
+              <Reveal key={b.title} variant={i % 2 ? "right" : "left"} delay={i * 0.08} className="hover-card rounded-3xl border border-border bg-card p-10">
+                <IconTile icon={b.icon} />
+                <h2 className="mt-6 text-2xl font-semibold text-foreground">{b.title}</h2>
+                <p className="mt-3 text-lg leading-relaxed text-muted-foreground">{b.text}</p>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Our Journey</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Milestones</h2>
+      <section className="border-y border-border bg-muted/50 py-24">
+        <Container>
+          <Reveal className="text-center">
+            <Eyebrow>Core Values</Eyebrow>
+          </Reveal>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {about.values.map((v, i) => (
+              <Reveal key={v} delay={i * 0.06} className="hover-card rounded-2xl border border-border bg-card p-7 text-center">
+                <IconTile icon={valueIcons[i]} className="mx-auto" />
+                <h3 className="mt-5 text-lg font-semibold text-foreground">{v}</h3>
+              </Reveal>
+            ))}
           </div>
+        </Container>
+      </section>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-1/2" />
-              {milestones.map((milestone, index) => (
-                <div key={index} className={`relative flex items-center gap-8 mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} ml-12 md:ml-0`}>
-                    <div className="bg-card border border-border rounded-2xl p-6">
-                      <span className="text-primary font-bold text-lg">{milestone.year}</span>
-                      <h3 className="text-lg font-semibold text-foreground mt-2">{milestone.title}</h3>
-                      <p className="text-muted-foreground mt-2">{milestone.description}</p>
+      <section className="py-24">
+        <Container>
+          <Reveal className="text-center">
+            <Eyebrow>Trust &amp; Scale Metrics</Eyebrow>
+          </Reveal>
+          <dl className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 0.06} className="hover-card rounded-3xl border border-border bg-card p-7 text-center">
+                <dd className="text-3xl font-semibold text-brand-gradient sm:text-4xl"><CountUp value={s.value} /></dd>
+                <dt className="mt-3 text-sm text-muted-foreground">{s.label}</dt>
+              </Reveal>
+            ))}
+          </dl>
+          <Reveal className="mt-6 flex flex-wrap justify-center gap-3">
+            {statsExtra.map((s) => (
+              <span key={s} className="hover-chip flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
+                <Check className="h-4 w-4 text-growth" aria-hidden="true" /> {s}
+              </span>
+            ))}
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-muted/50 py-24">
+        <Container>
+          <Reveal className="text-center">
+            <Eyebrow>Milestones</Eyebrow>
+          </Reveal>
+          <ol className="relative mx-auto mt-12 max-w-3xl space-y-4 border-l border-border pl-8">
+            {milestones.map((m, i) => (
+              <Reveal key={m.year} delay={(i % 3) * 0.05} className="hover-card relative rounded-2xl border border-border bg-card p-6">
+                <span className="absolute -left-[41px] top-7 h-4 w-4 rounded-full border-4 border-background bg-primary" aria-hidden="true" />
+                <p className="text-sm font-semibold text-brand">{m.year}</p>
+                <h3 className="mt-1 text-lg font-semibold text-foreground">{m.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{m.description}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </Container>
+      </section>
+
+      {[
+        { title: 'Meet the Core Team', people: team },
+        { title: 'Meet the Promoters', people: promoters },
+      ].map((group) => (
+        <section key={group.title} className="py-24 even:border-y even:border-border even:bg-muted/50">
+          <Container>
+            <Reveal className="text-center">
+              <Eyebrow>{group.title}</Eyebrow>
+            </Reveal>
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {group.people.map((m, i) => (
+                <Reveal key={m.name} variant={i % 2 ? "right" : "left"} delay={(i % 2) * 0.08} className="hover-card min-w-0 rounded-3xl border border-border bg-card p-6 sm:p-8">
+                  <div className="flex flex-col items-start gap-4 min-[380px]:flex-row min-[380px]:items-center min-[380px]:gap-5">
+                    <MemberAvatar name={m.name} image={m.image} />
+                    <div className="min-w-0 break-words">
+                      <h3 className="text-lg font-semibold text-foreground">{m.name}</h3>
+                      <p className="mt-1 text-sm font-medium text-brand">{m.role}</p>
                     </div>
                   </div>
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full md:-translate-x-1/2 z-10" />
-                  <div className="flex-1 hidden md:block" />
-                </div>
+                  <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{m.bio}</p>
+                </Reveal>
               ))}
             </div>
-          </div>
-        </div>
+          </Container>
+        </section>
+      ))}
+
+      <section className="border-t border-border py-24">
+        <Container className="grid gap-5 lg:grid-cols-2">
+          <Reveal className="hover-card rounded-3xl border border-border bg-card p-8">
+            <Eyebrow>Client Ecosystem</Eyebrow>
+            <p className="mt-4 leading-relaxed text-foreground/90">{clients.join(', ')}</p>
+          </Reveal>
+          <Reveal delay={0.08} className="hover-card rounded-3xl border border-border bg-card p-8">
+            <Eyebrow>Compliance &amp; Network Ecosystem</Eyebrow>
+            <p className="mt-4 text-foreground/90">{compliance.networks}</p>
+            <p className="mt-2 text-foreground/90">{compliance.pci}</p>
+          </Reveal>
+        </Container>
       </section>
 
-      {/* Core Team */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Core Team</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Meet the Core Team</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {team.map((member, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-8">
-                <div className="flex items-start gap-5 mb-4">
-                  <MemberAvatar name={member.name} image={member.image} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
-                    <p className="text-primary font-medium text-sm mt-1">{member.role}</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Founders & Promoters */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Founders & Promoters</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Meet the Promoters</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {promoters.map((member, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-8">
-                <div className="flex items-start gap-5 mb-4">
-                  <MemberAvatar name={member.name} image={member.image} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
-                    <p className="text-primary font-medium text-sm mt-1">{member.role}</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Ecosystem */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Client Ecosystem</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Trusted By Industry Leaders</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From leading private sector banks to fast-growing payment fintechs — institutions across India rely on PayNext infrastructure.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            {clientEcosystem.map((group, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    {index === 0 ? <Building2 className="w-5 h-5 text-primary" /> : <Globe className="w-5 h-5 text-primary" />}
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground">{group.category}</h3>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {group.clients.map((client, i) => (
-                    <span key={i} className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                      {client}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Compliance & Networks</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Certifications & Standards</h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.map((cert, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-6 text-center">
-                <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-foreground mb-2">{cert.title}</h3>
-                <p className="text-sm text-muted-foreground">{cert.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-    </main>
+      <CtaBand />
+    </>
   )
 }

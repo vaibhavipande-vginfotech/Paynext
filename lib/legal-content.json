@@ -1,0 +1,192 @@
+{
+ "privacy": {
+  "title": "Privacy Statement",
+  "intro": [
+   {
+    "p": "We at PayNext are committed to safeguarding your privacy. This Privacy Policy explains how we may collect, use, share, and keep personal information about you. It also explains the choices on your part related to use of, your access to, and possibilities and ways to correct your personal information. It is crucial on your part to read the Privacy Policy carefully."
+   }
+  ],
+  "sections": [
+   {
+    "heading": "Required Personal information",
+    "blocks": [
+     {
+      "p": "For the purpose of this Privacy Policy, we collect personal information of individuals which includes name, email address, contact details, or location. We gather pieces of information that you provide us when you select to contact us for more information or when you register on our website. We collect time, date, and a few additional information about user’s browser and system, referring/exit pages, files viewed on our site (like graphics, downloads, etc.), and IP address for all the visitors to our site. We use this information for site personalization purposes"
+     }
+    ]
+   },
+   {
+    "heading": "Use of Personal Information",
+    "blocks": [
+     {
+      "p": "Personal Information may be used by us to:"
+     },
+     {
+      "ul": [
+       "Manage and provide our services",
+       "Comprehend our visitors/users and improve how our website work",
+       "Get in touch with you and reply to your queries",
+       "Provide the related information about our product and services to you",
+       "Keep the employees, users, system, and services safe",
+       "Provide the additional information or support you"
+      ]
+     }
+    ]
+   },
+   {
+    "heading": "When/how we share your personal information?",
+    "blocks": [
+     {
+      "p": "Your personal information may be disclosed to third parties like members of PayNext or vendors that work on our behalf. They are authorized to use your personal information when it is essential to provide the following services to us:"
+     },
+     {
+      "ul": [
+       "Providing customer service",
+       "Sending marketing communications",
+       "Conducting research and analysis",
+       "Payment processing",
+       "Providing cloud computing infrastructure"
+      ]
+     }
+    ]
+   },
+   {
+    "heading": "Legal Disclaimer",
+    "blocks": [
+     {
+      "p": "In a few cases, PayNext may be required to disclose your personal data to meet security requirements, lawful requests raised by public authorities, as well as instances requiring co-operation with law enforcement agencies where mandated by law."
+     },
+     {
+      "p": "Additionally, when required by law, we may disclose personal information to comply with a subpoena or other legal process and when it becomes crucial to protect our rights, respond to a government request, protect your safety or the safety of others, or investigate fraud."
+     }
+    ]
+   },
+   {
+    "heading": "How long do we keep your personal information?",
+    "blocks": [
+     {
+      "p": "Personal Information is held on as long as the purpose for its collection survives or lawfully further processed. The conditions used to determine the duration to hold personal information may include:"
+     },
+     {
+      "ul": [
+       "Type of personal information provided to us",
+       "The Purpose for which the personal information is provided",
+       "To continue with essential business and operational requirements by providing you the services or the functionality requested by you",
+       "Your personal information may be retained as long as your account is active, or as required to supply you the services, comply with our legal commitment, settle disputes and impose our agreements"
+      ]
+     }
+    ]
+   },
+   {
+    "heading": "Where we store Personal Information?",
+    "blocks": [
+     {
+      "p": "We collect, store, and process information on servers. We take effective measures to ensure you that your personal data which are collected by us are continuously protected through adequate safeguards."
+     },
+     {
+      "p": "As a user of our services, it is essential on your part to protect the information provided by you, including user name and passwords."
+     }
+    ]
+   },
+   {
+    "heading": "Updating Private Policy",
+    "blocks": [
+     {
+      "p": "In any given time, PayNext reserves the right to revise this Privacy Policy and Terms of Use, add or amend website information, add new product and service features, add new items in the website, or even terminate the website without prior notice."
+     },
+     {
+      "p": "We are constantly working to develop services. It may be feasible that we may change our practices over time as our business and technology evolve. This may result in changes involved in the ways of collecting, processing, and using your information. We amend this Policy from time to time."
+     }
+    ]
+   },
+   {
+    "heading": "Copyright Notice",
+    "blocks": [
+     {
+      "p": "The text, data, video clips, and photographs, and all of the other pieces of information available on this site is protected under copyright. The content on this site may not be copied and republished or used for the creation of any derivative works without the prior consent from PayNext, except it provides limited permission to access and display Web pages and downloadable documents within the site only on your computer for non-commercial use."
+     }
+    ]
+   },
+   {
+    "heading": "Registration",
+    "blocks": [
+     {
+      "p": "The users and visitors can gain access to this website without making any registration. But, there are some specific sections of this site where a password is essential to provide you with certain services, information, and specific material."
+     }
+    ]
+   },
+   {
+    "heading": "Cookies used",
+    "blocks": [
+     {
+      "p": "We use cookies to analyze trends, track user’s movement around the site, manage the site, and collect demographic information about the user."
+     }
+    ]
+   }
+  ]
+ },
+ "terms_of_use": {
+  "title": "Terms of Use",
+  "intro": [
+   {
+    "p": "The terms of use that are prescribed down below are the terms of use on which you may access through this website. It is recommended for you as a user of this site to read and accept all of these terms and conditions along with Disclaimer. Nothing contained herein shall be considered to grant any third party rights or benefits. In any case, if you disagree to bound by these terms and conditions as the user of this website, you may opt-out from using this website."
+   },
+   {
+    "p": "PayNext reserve the right to modify these terms of use at any time. Without prior notice, it can post the amended Terms of Use on this website. Your use of this website is an indication of your acceptance of the amended Terms of Use."
+   },
+   {
+    "p": "It is essential for every user to go through the Terms of Use periodically."
+   },
+   {
+    "p": "This PayNext website (https://paynext.co.in) is an open platform in the form of medium that has been designed to enable users, visitors, including investors, current or potential customers, financial and industry analyst, alliance partners or potential alliance partners, media and journalists, current and former employees, job-seekers and others to collect the information about PayNext and to interact with PayNext through contact form given in the website."
+   },
+   {
+    "p": "PayNext reserves rights to immediately terminate or remove your access to this website as a user without prior notice or showing any reason. It can also do the same for various other reasons if it suspects breach or violation of these Terms of Use or requests by enforcement of law or other government agencies, any unexpected technical problems, or any additional reasons that PayNext finds good enough and believes for such removal. It needs to be understood and agreed by users that all terminators shall be made by PayNext at its sole discretion and PayNext shall not be liable to you or any third party for the termination of access to this website."
+   },
+   {
+    "p": "To maintain the confidentiality of password and account is the user’s responsibility. He/she is/shall be completely responsible for any kind of activities that take place under his/her account/password with or without his/her knowledge."
+   },
+   {
+    "p": "PayNext does not assure for:"
+   },
+   {
+    "p": "The site, its contents or quality will meet user’s need"
+   },
+   {
+    "p": "Uninterrupted access to this website, secure, timely or effort-free"
+   },
+   {
+    "p": "Any material obtained or downloaded from this website is at your own decision and you will be the only one responsible for any damage that may occur to your computer or loss of data that results from the download of any such material"
+   },
+   {
+    "p": "The information submitted by you strictly relates to you in person only."
+   }
+  ],
+  "sections": []
+ },
+ "disclaimer": {
+  "title": "Disclaimer",
+  "intro": [],
+  "sections": [
+   {
+    "heading": "Use of Website Information",
+    "blocks": [
+     {
+      "p": "According to the terms and conditions dictated in Terms of Use and this Disclaimer, PayNext grants you a non-exclusive, non-transferable, restricted and limited rights to access, use, and show this website along with the contents. You agree and acknowledge that from you there will be no interruption in the functioning of this website in any manner whatsoever. You need to agree as a user of this website that you shall use and access this website in accordance with the terms and conditions stated in Terms of Use and Disclaimer."
+     },
+     {
+      "p": "Except as otherwise indicated elsewhere on this website, as a user or visitor of this website, you may view, copy, print, and download the data/information available on this website considering the following conditions:"
+     },
+     {
+      "ul": [
+       "The information on this website is exclusively used for personal and informational purposes",
+       "The information may not be amended or changed in any way",
+       "Any information copied or part thereof must include the copyright notice including this permission notice",
+       "You shall agree to the additional restriction of using this website as displayed and updated from time to time"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,123 +1,65 @@
-import Link from 'next/link'
-import { ArrowRight, MapPin, Clock, Briefcase, Users, Heart, Rocket, Coffee, GraduationCap, Shield, TrendingUp, Code, Globe } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Code, Globe, TrendingUp, Sprout, Mail } from 'lucide-react'
+import { Container, Eyebrow, Reveal, IconTile } from '@/components/site/primitives'
+import { Marquee } from '@/components/site/motion'
+import PageHero from '@/components/site/page-hero'
+import { careers, contact } from '@/lib/site-content'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata = {
+// Content: master document "Careers" section, verbatim.
+export const metadata = pageMeta("/careers", {
   title: 'Careers | PayNext',
-  description: 'Join the PayNext team and help build the future of payment technology.',
-}
+  description: `${careers.title} ${careers.welcome}`,
+})
 
-// Updated why work with us section
-const whyWorkWithUs = [
-  { icon: Code, title: 'Enterprise-Grade Fintech Infrastructure', description: 'Build and scale systems that power millions of transactions' },
-  { icon: Globe, title: 'Banking & Network Ecosystems', description: 'Work with leading banks and payment networks' },
-  { icon: TrendingUp, title: 'High-Performance Engineering', description: 'Join a culture of excellence and technical innovation' },
-  { icon: Shield, title: 'Growth-Focused Environment', description: 'Accelerate your career with continuous learning opportunities' },
-]
-
-// Departments we're hiring for
-const departments = ['Engineering', 'Product', 'Risk', 'Compliance', 'Sales']
+const icons = [Code, Globe, TrendingUp, Sprout]
+const teams = ['Engineering', 'Product', 'Risk', 'Compliance', 'Sales']
 
 export default function CareersPage() {
   return (
-    <main className="min-h-screen">
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Careers</span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Join a Team Building
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Next-Generation Payment Infrastructure
-              </span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              We're building the future of payments. Join us to work on enterprise-grade fintech infrastructure 
-              that powers millions of transactions every day.
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      <PageHero eyebrow="Careers" title="Join a team building" highlight="next-generation payment infrastructure." />
 
-      {/* Why Work With PayNext */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Why Work With PayNext</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Build the Future of Fintech
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyWorkWithUs.map((item, index) => (
-              <div key={index} className="bg-card border border-border rounded-2xl p-6 text-center hover:border-primary/30 transition-colors">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                  <item.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
+      <section className="py-24">
+        <Container>
+          <Reveal className="text-center">
+            <Eyebrow>{careers.whyTitle}</Eyebrow>
+          </Reveal>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {careers.why.map((w, i) => (
+              <Reveal key={w} delay={i * 0.06} className="hover-card rounded-3xl border border-border bg-card p-7">
+                <IconTile icon={icons[i]} />
+                <p className="mt-5 text-lg font-semibold leading-snug text-foreground">{w}</p>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Departments We're Hiring For */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Open Opportunities</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              We Welcome Professionals Across
-            </h2>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-            {departments.map((dept, index) => (
-              <Badge key={index} className="px-6 py-3 text-base bg-primary/10 text-primary border-primary/30 hover:bg-primary/20 transition-colors">
-                {dept}
-              </Badge>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground">
-              And more! If you're passionate about fintech and want to make an impact, we want to hear from you.
-            </p>
-          </div>
-        </div>
+      <section className="border-y border-border bg-muted/50 py-16">
+        <Reveal className="text-center">
+          <p className="mx-auto max-w-2xl px-5 text-lg text-foreground">{careers.welcome}</p>
+        </Reveal>
+        <Marquee speed={30} className="mt-10">
+          {[...teams, ...teams].map((t, i) => (
+            <span key={t + i} className="hover-chip whitespace-nowrap rounded-full border border-border bg-card px-8 py-4 text-lg font-semibold text-brand">
+              {t}
+            </span>
+          ))}
+        </Marquee>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Ready to Make an Impact?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Join us in building the next generation of payment infrastructure. 
-              Send us your resume and let's start a conversation.
-            </p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link href="mailto:careers@paynext.co.in">
-                Send Your Resume
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
+      <section className="py-24">
+        <Container className="text-center">
+          <Reveal>
+            <a
+              href={`mailto:${contact.email}`}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" /> {contact.email}
+            </a>
+          </Reveal>
+        </Container>
       </section>
-
-    </main>
+    </>
   )
 }

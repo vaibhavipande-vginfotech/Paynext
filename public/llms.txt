@@ -1,0 +1,37 @@
+# PayNext
+
+> PayNext is a Certified Technology Service Provider (TSP) delivering unified payment infrastructure across acquiring, issuance, and orchestration ecosystems. PayNext delivers bank-grade switching, operational intelligence, and dynamic routing infrastructure for institutions operating at scale.
+
+PayNext Private Limited is a B2B payment technology partner headquartered in Mumbai, India. Its platform offering is PayNext+ — the international payments operating platform: one platform to accept, issue, move, control and optimize money — with VISTA, CocoNet and intelligence woven in.
+
+## Key facts
+- Company: PayNext Private Limited, A-1, Esspee Tower, 2nd Floor, Datta Pada Road, Opp Oberoy Sky City, Borivali East, Mumbai - 400 066, Maharashtra, India
+- Contact: info@paynext.co.in (enterprise inquiries), sales@paynext.co.in, +91 6262676764
+- Solutions team response time: 24–48 hours
+- Transaction volume processed: ₹18 Trillion+
+- Platform uptime: 99.99%
+- Average implementation timeline: 1 week
+- Multi-acquirer infrastructure support; cloud-native / on-premise / hybrid deployment
+- Designed to work with Visa, Mastercard, RuPay, and NPCI ecosystems. PCI-DSS compliant infrastructure.
+- Clients include: Pine Labs, CC Avenue, Cashfree, Mswipe, PayGlocal, Chalo, YES Bank, Federal Bank, RBL Bank, EnKash, Rapipay, Goa State Co-operative Bank
+
+## Core platforms
+- [PerseusPay](https://paynext.co.in/products#perseuspay): Core Switching & Card Processing Platform — multi-channel acquiring (POS, IPG, NCMC, NETC, Micro ATM, UPI), card management & issuance processing, DCC & MCC transaction support, high-success-rate MPI, domestic & international processing. "One Switch. Every Channel. Total Control."
+- [VISTA](https://paynext.co.in/platform/vista): Acquiring Management Platform — merchant onboarding & inventory management, transaction-level interchange calculation, domestic/international/DCC/MCC analytics, network cost breakup, merchant & aggregator payout, fraud, risk, refund & dispute management. "Control the Entire Acquiring Lifecycle."
+- [Europa](https://paynext.co.in/products#europa): Payment Orchestration Platform — dynamic multi-bank routing, API-based rule engine, routing based on pricing & success rate, improved authorization & cost optimization. "Route Smarter. Convert Better."
+
+## PayNext+ platform
+- [PayNext+ overview](https://paynext.co.in/platform): five pillars — Accept (card-present, card-not-present; PG, POS, UPI, NCMC, NETC), Issue (debit, prepaid; cards, CMS, ACS), Connect (switch, route, clear, settle, payout), Control (recon, disputes, fraud, risk, compliance), Optimize (merchant scoring, profitability, analytics).
+- Principles: one platform, modular, API-first, controlled AI, enterprise-ready.
+- Serves: banks, fintechs, merchants, payment processors — global.
+
+## Solutions
+- [ATM Switching Solutions](https://paynext.co.in/solutions/atm-switching): OEM-compatible ATM switching across on-us, off-us and interoperable ATM networks.
+- [NCMC (National Common Mobility Card) Solutions](https://paynext.co.in/solutions/ncmc): NPCI-certified TSP for NCMC issuance & acquiring across metro, bus, toll and parking.
+- [NETC Switching](https://paynext.co.in/solutions/netc-switching): NPCI-certified NETC switching for FASTag issuance and acquiring across toll plazas and parking.
+- [POS / MPOS](https://paynext.co.in/products/POS-MPOS), [E-Commerce Gateway](https://paynext.co.in/products/E-commerceGateway), [Bharat QR & UPI](https://paynext.co.in/products/BharatQR-UPI)
+
+## Company
+- [About Us](https://paynext.co.in/about): vision — to power secure, scalable, and intelligent payment ecosystems; mission — to enable banks and fintechs with unified switching, operational intelligence, and routing infrastructure.
+- [Careers](https://paynext.co.in/careers)
+- [Contact Us](https://paynext.co.in/contact)

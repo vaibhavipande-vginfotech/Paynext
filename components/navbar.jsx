@@ -1,416 +1,311 @@
-"use client";
+"use client"
 
-import { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-import { Menu, X, ChevronDown, Shield, Zap } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import ThemeToggle from "@/components/theme-toggle"
+import Logo from "@/components/site/logo"
+import { ScrollProgress } from "@/components/site/scroll-extras"
+import { pillars, layers, solutionsNav } from "@/lib/site-content"
+
+const menus = [
+  {
+    name: "Solutions",
+    href: "/solutions",
+    columns: [{ title: "Solutions", items: [{ name: "Core Platforms Overview", href: "/products", desc: "PerseusPay · VISTA · Europa" }, ...solutionsNav] }],
+  },
+  {
+    name: "PayNext+",
+    href: "/platform",
+    columns: [
+      {
+        title: "PayNext+",
+        items: pillars.map((p) => ({ name: p.name, href: `/platform#${p.id}`, desc: p.lines.join(" · "), icon: p.icon })),
+      },
+      {
+        title: "VISTA · CocoNet · Intelligence Layer",
+        items: layers.map((l) => ({ name: l.name, href: l.href, desc: l.tag, icon: l.icon })),
+      },
+    ],
+  },
+  {
+    name: "Company",
+    href: "/about",
+    columns: [
+      {
+        title: "Company",
+        items: [
+          { name: "About Us", href: "/about" },
+          { name: "Careers", href: "/careers" },
+          { name: "FAQ", href: "/faq" },
+        ],
+      },
+    ],
+  },
+]
+
+const links = [
+  { name: "Who we serve", href: "/who-we-serve" },
+]
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef(null);
-  const timeoutRef = useRef(null);
-
-  const products = [
-    {
-      name: "POS / MPOS",
-      href: "/products/POS-MPOS",
-      description:
-        "Seamless in-store payment acceptance via POS and mobile POS devices",
-      icon: "💳",
-    },
-    {
-      name: "E-Commerce Gateway",
-      href: "/products/E-commerceGateway",
-      description:
-        "Secure and scalable online payment processing for web and mobile platforms",
-      icon: "🌐",
-    },
-    {
-      name: "Bharat QR & UPI",
-      href: "/products/BharatQR-UPI",
-      description:
-        "Instant QR and UPI-based payment solutions for fast and contactless transactions",
-      icon: "📱",
-    },
-  ];
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Solutions", href: "/solutions" },
-    { name: "Careers", href: "/careers" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setProductsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setProductsOpen(false);
-    }, 200);
-  };
+  const pathname = usePathname()
+  const [open, setOpen] = useState(null) // name of open desktop menu
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileSection, setMobileSection] = useState(null)
+  const [scrolled, setScrolled] = useState(false)
+  const closeTimer = useRef(null)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  // Close menus on route change
+  useEffect(() => {
+    setOpen(null)
+    setMobileOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === "Escape" && setOpen(null)
+    document.addEventListener("keydown", onKey)
+    return () => document.removeEventListener("keydown", onKey)
+  }, [open])
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : ""
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
-
-  // Close the products dropdown on Escape (keyboard accessibility)
-  useEffect(() => {
-    if (!productsOpen) return;
-    const handleKey = (e) => {
-      if (e.key === "Escape") setProductsOpen(false);
-    };
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, [productsOpen]);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileMenuOpen]);
+  }, [mobileOpen])
+
+  const enter = (name) => {
+    clearTimeout(closeTimer.current)
+    setOpen(name)
+  }
+  const leave = () => {
+    closeTimer.current = setTimeout(() => setOpen(null), 150)
+  }
+
+  const isActive = (href) => (href === "/" ? pathname === "/" : pathname?.startsWith(href))
 
   return (
-    <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-slate-900/95 backdrop-blur-xl border-b border-white/10 shadow-lg"
-            : "bg-transparent"
-        }`}
-      >
-        {/* Animated gradient bar at top */}
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        />
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open ? "border-b border-border bg-background/85 backdrop-blur-xl" : "border-b border-transparent"
+      }`}
+    >
+      <div className="top-stripe h-[3px] w-full" aria-hidden="true" />
+      <ScrollProgress />
+      <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 sm:px-6 lg:px-8" aria-label="Main">
+        <Logo className="h-7" />
 
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          {/* Logo - Left */}
-          <div className="flex lg:flex-1">
-            <Link href="/" className="-m-1.5 p-1.5 group">
-              <div className="flex items-center gap-2">
-                <img 
-                  src="/Logo.png" 
-                  alt="PayNext Logo" 
-                  className="h-10 w-auto brightness-0 invert" 
+        {/* Desktop */}
+        <div className="hidden items-center gap-0.5 lg:flex xl:gap-1">
+          {menus.map((m) => (
+            <div key={m.name} className="relative" onMouseEnter={() => enter(m.name)} onMouseLeave={leave}>
+              <button
+                type="button"
+                className={`nav-link flex items-center gap-1 rounded-full px-2.5 py-2 text-sm transition-colors xl:px-3.5 ${
+                  isActive(m.href) || open === m.name ? "text-foreground" : "text-nav hover:text-foreground"
+                }`}
+                aria-expanded={open === m.name}
+                aria-haspopup="true"
+                onClick={() => setOpen(open === m.name ? null : m.name)}
+              >
+                {m.name}
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${open === m.name ? "rotate-180" : ""}`}
+                  aria-hidden="true"
                 />
-              </div>
-            </Link>
-          </div>
+              </button>
 
-          {/* Mobile menu button */}
-          <div className="flex lg:hidden">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              type="button"
-              className="relative inline-flex items-center justify-center rounded-lg p-2.5 text-white hover:bg-white/10 transition-all duration-300"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            </motion.button>
-          </div>
-
-          {/* ── Desktop Navigation - Center ── */}
-          <div className="hidden lg:flex lg:items-center lg:gap-x-8 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + index * 0.05, duration: 0.6 }}
-              >
-                <Link
-                  href={link.href}
-                  className="relative text-sm font-medium text-gray-300 hover:text-white transition-colors group"
-                >
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-300" />
-                </Link>
-              </motion.div>
-            ))}
-
-            {/* Products dropdown */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + navLinks.length * 0.05, duration: 0.6 }}
-              className="relative"
-            >
-              <div
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button
-                  className="flex items-center gap-x-1.5 text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setProductsOpen(!productsOpen)}
-                  aria-expanded={productsOpen}
-                  aria-haspopup="true"
-                >
-                  Products
-                  <ChevronDown
-                    className={`h-4 w-4 flex-shrink-0 transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  />
-                </button>
-
-                {productsOpen && (
-                  <div className="absolute left-1/2 -translate-x-1/2 pt-6 w-screen max-w-md">
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden rounded-xl bg-slate-900/98 backdrop-blur-xl border border-white/10 shadow-2xl"
-                    >
-                      <div className="p-2">
-                        {products.map((item, index) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className="group relative flex items-center gap-x-4 rounded-lg p-4 hover:bg-white/10 transition-all duration-300"
-                            onClick={() => setProductsOpen(false)}
-                          >
-                            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                              {item.icon}
-                            </div>
-                            <div>
-                              <span className="font-semibold text-white group-hover:text-blue-400 transition-colors">
-                                {item.name}
-                              </span>
-                              <p className="mt-1 text-sm text-gray-400">
-                                {item.description}
-                              </p>
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Get Started Button - Right */}
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              whileHover={{ scale: 1.05 }} 
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                asChild
-                className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600 text-white border-0 shadow-lg shadow-blue-500/25 transition-all duration-300"
-              >
-                <Link href="/contact">
-                  <span className="relative z-10 flex items-center gap-2">
-                    Get Started
-                    <Zap className="w-4 h-4" />
-                  </span>
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </nav>
-
-        {/* ── Mobile Menu ── */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <>
-              {/* Backdrop */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md"
-                onClick={() => setMobileMenuOpen(false)}
-              />
-
-              {/* Slide-in panel */}
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-slate-900 px-6 py-6 sm:max-w-sm border-l border-white/10 shadow-2xl"
-              >
-                {/* Header row */}
-                <div className="flex items-center justify-between mb-8">
-                  <Link
-                    href="/"
-                    className="-m-1.5 p-1.5"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <div className="flex items-center gap-2">
-                      <img
-                        src="/Logo.png"
-                        alt="PayNext Logo"
-                        className="h-12 w-auto brightness-0 invert"
-                      />
-                    </div>
-                  </Link>
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    type="button"
-                    className="rounded-lg p-2.5 text-white hover:bg-white/10 transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <X className="h-6 w-6" aria-hidden="true" />
-                  </motion.button>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  {/* Regular nav links */}
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <Link
-                        href={link.href}
-                        className="flex items-center rounded-lg px-3 py-2.5 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {link.name}
-                      </Link>
-                    </motion.div>
-                  ))}
-
-                  {/* Products accordion */}
+              <AnimatePresence>
+                {open === m.name && (
                   <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navLinks.length * 0.05 }}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 6 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-1/2 top-full -translate-x-1/2 pt-3"
                   >
-                    <button
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
-                      onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                      aria-expanded={mobileProductsOpen}
+                    <div
+                      className={`grid gap-6 rounded-2xl border border-border bg-popover p-5 shadow-2xl shadow-black/10 ${
+                        m.columns.length > 1 ? "w-[680px] grid-cols-2" : "w-[380px] grid-cols-1"
+                      }`}
                     >
-                      <span>Products</span>
+                      {m.columns.map((col) => (
+                        <div key={col.title}>
+                          <p className="eyebrow mb-3 px-3">{col.title}</p>
+                          <ul className="space-y-0.5">
+                            {col.items.map((it) => (
+                              <li key={it.name}>
+                                <Link
+                                  href={it.href}
+                                  className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-[background-color,translate] duration-300 hover:translate-x-1 hover:bg-muted"
+                                >
+                                  {it.icon && (
+                                    <it.icon className="mt-0.5 h-4 w-4 shrink-0 text-brand" strokeWidth={1.75} aria-hidden="true" />
+                                  )}
+                                  <span>
+                                    <span className="block text-sm font-medium text-foreground">{it.name}</span>
+                                    {it.desc && <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">{it.desc}</span>}
+                                  </span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <Link
+                        href={m.href}
+                        className={`flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm text-foreground transition-colors hover:bg-muted ${
+                          m.columns.length > 1 ? "col-span-2" : ""
+                        }`}
+                      >
+                        {m.name}
+                        <ArrowRight className="h-4 w-4 text-brand" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+          {links.map((l) => (
+            <Link
+              key={l.name}
+              href={l.href}
+              className={`nav-link rounded-full px-2.5 py-2 text-sm transition-colors xl:px-3.5 ${
+                isActive(l.href) ? "text-foreground" : "text-nav hover:text-foreground"
+              }`}
+            >
+              {l.name}
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
+          <Link href="/contact" className="hidden px-3 text-sm text-nav transition-colors hover:text-foreground xl:block">
+            Contact
+          </Link>
+          <Button asChild size="sm" className="h-9 px-5">
+            <Link href="/contact">Schedule consultation</Link>
+          </Button>
+        </div>
+
+        {/* Mobile */}
+        <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg p-2.5 text-foreground hover:bg-muted"
+            onClick={() => setMobileOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Menu className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+              onClick={() => setMobileOpen(false)}
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 260 }}
+              className="fixed inset-y-0 right-0 z-50 flex w-full flex-col overflow-y-auto border-l border-border bg-background px-5 py-5 sm:max-w-sm"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu"
+            >
+              <div className="mb-6 flex items-center justify-between">
+                <Logo className="h-7" onClick={() => setMobileOpen(false)} />
+                <button
+                  type="button"
+                  className="rounded-lg p-2.5 text-foreground hover:bg-muted"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <span className="sr-only">Close menu</span>
+                  <X className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+
+              <div className="flex flex-col">
+                {menus.map((m) => (
+                  <div key={m.name} className="border-b border-border">
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between py-4 text-base font-medium text-foreground"
+                      aria-expanded={mobileSection === m.name}
+                      onClick={() => setMobileSection(mobileSection === m.name ? null : m.name)}
+                    >
+                      {m.name}
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`}
+                        className={`h-4 w-4 transition-transform ${mobileSection === m.name ? "rotate-180" : ""}`}
+                        aria-hidden="true"
                       />
                     </button>
-
-                    <AnimatePresence>
-                      {mobileProductsOpen && (
-                        <motion.div
+                    <AnimatePresence initial={false}>
+                      {mobileSection === m.name && (
+                        <motion.ul
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden"
+                          className="overflow-hidden pb-3"
                         >
-                          <div className="mt-1 ml-3 flex flex-col gap-1 border-l border-white/10 pl-3">
-                            {products.map((item, index) => (
-                              <motion.div
-                                key={item.name}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.06 }}
+                          {m.columns.flatMap((c) => c.items).map((it) => (
+                            <li key={it.name}>
+                              <Link
+                                href={it.href}
+                                className="block rounded-lg px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
                               >
-                                <Link
-                                  href={item.href}
-                                  className="flex items-center gap-3 rounded-lg p-3 hover:bg-white/10 transition-all duration-200"
-                                  onClick={() => setMobileMenuOpen(false)}
-                                >
-                                  <span className="text-xl leading-none">
-                                    {item.icon}
-                                  </span>
-                                  <div>
-                                    <p className="text-sm font-medium text-white">
-                                      {item.name}
-                                    </p>
-                                    <p className="text-xs text-gray-400 mt-0.5 leading-snug">
-                                      {item.description}
-                                    </p>
-                                  </div>
-                                </Link>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </motion.div>
+                                {it.name}
+                              </Link>
+                            </li>
+                          ))}
+                          <li>
+                            <Link href={m.href} className="block px-3 py-2 text-sm font-medium text-brand">
+                              {m.name} →
+                            </Link>
+                          </li>
+                        </motion.ul>
                       )}
                     </AnimatePresence>
-                  </motion.div>
-                </div>
-
-                {/* Divider */}
-                <div className="my-6 border-t border-white/10" />
-
-                {/* Get Started button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600 text-white"
-                  >
-                    <Link
-                      href="/contact"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Get Started
-                      <Zap className="ml-2 w-4 h-4" />
-                    </Link>
-                  </Button>
-                </motion.div>
-
-                {/* Trust badges */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="mt-6 flex items-center justify-center gap-3"
-                >
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                    <Shield className="w-3 h-3 text-blue-400" />
-                    <span className="text-xs text-gray-400">PCI-DSS</span>
                   </div>
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-                    <Shield className="w-3 h-3 text-purple-400" />
-                    <span className="text-xs text-gray-400">Certified TSP</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
-      </motion.header>
-    </>
-  );
+                ))}
+                {[...links, { name: "Contact", href: "/contact" }].map((l) => (
+                  <Link key={l.name} href={l.href} className="border-b border-border py-4 text-base font-medium text-foreground">
+                    {l.name}
+                  </Link>
+                ))}
+              </div>
+
+              <Button asChild size="lg" className="mt-8 w-full">
+                <Link href="/contact">Schedule a Technical Consultation</Link>
+              </Button>
+              <p className="mt-6 text-center text-xs text-muted-foreground">Certified Technology Service Provider (TSP) · PCI-DSS Compliant Infrastructure</p>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </header>
+  )
 }

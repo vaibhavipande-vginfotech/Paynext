@@ -1,280 +1,117 @@
-"use client"
+import { Mail, Clock, Building2, MessageSquare, Phone, MapPin } from 'lucide-react'
+import { contact } from '@/lib/site-content'
+import PageHero from '@/components/site/page-hero'
+import { Container, IconTile, Reveal } from '@/components/site/primitives'
+import ContactForm from '@/components/site/contact-form'
+import { pageMeta } from '@/lib/seo'
 
-import { useState } from 'react'
-import { MapPin, Mail, Clock, Send, Building2, Globe, Phone, MessageSquare } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { FieldGroup, Field, FieldLabel } from '@/components/ui/field'
+export const metadata = pageMeta("/contact", {
+  title: 'Contact Us | PayNext',
+  description:
+    'For Enterprise Inquiries: Email: info@paynext.co.in · Solutions Team Response Time: 24–48 Hours',
+})
 
-// Real contact info from website
+// Content: master document "Contact Us" + address/telephone/sales email from the live site
+// (https://paynext.co.in/pages/contact-us.html).
 const contactInfo = [
   {
     icon: Building2,
     title: 'Head Office',
-    lines: [
-      'PayNext Private Limited',
-      'Mumbai, India'
-    ],
+    lines: [contact.legalName, ...contact.address],
+    href: contact.mapUrl,
+    linkLabel: 'Google Maps',
+    wide: true,
   },
-  {
-    icon: Mail,
-    title: 'Enterprise Inquiries',
-    lines: ['info@paynext.co.in'],
-  },
-  {
-    icon: Clock,
-    title: 'Solutions Team Response Time',
-    lines: ['24–48 Hours'],
-  },
+  { icon: Phone, title: 'Telephone', lines: [contact.phone], href: contact.phoneHref },
+  { icon: Mail, title: 'Email', lines: [contact.salesEmail], href: `mailto:${contact.salesEmail}` },
+  { icon: Clock, title: 'Solutions Team Response Time', lines: ['24–48 Hours'], wide: true },
 ]
 
 export default function ContactPage() {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    interest: '',
-    message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    const { name, email, company, phone, interest, message } = formState
-    const subject = `New enquiry from ${name || 'PayNext website'}`
-    const body = [
-      `Name: ${name}`,
-      `Work Email: ${email}`,
-      `Organisation: ${company || '-'}`,
-      `Phone: ${phone || '-'}`,
-      `Interested in: ${interest || '-'}`,
-      '',
-      'Message:',
-      message,
-    ].join('\n')
-    window.location.href = `mailto:info@paynext.co.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-  }
-
   return (
-    <main className="min-h-screen">
+    <>
+      <PageHero
+        eyebrow="Contact Us"
+        title="Contact"
+        highlight="Us"
+        lead={
+          <>
+            For Enterprise Inquiries: Email: info@paynext.co.in
+            <br />
+            Solutions Team Response Time: 24–48 Hours
+          </>
+        }
+      />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-[#0a1628] via-[#0f2744] to-[#0a1628] relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        </div>
+      <section className="bg-background py-16 sm:py-24">
+        <Container>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-12">
+            <Reveal variant="left" className="min-w-0">
+              <ContactForm />
+            </Reveal>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Contact Us</span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Reach Out to Us
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Let's Start a Conversation
-              </span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Have questions about our products or services? Want to schedule a demo?
-              Our solutions team is ready to help you find the right payment solution — and we respond within 24–48 hours.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form & Info */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-            {/* Contact Form */}
-            <div className="bg-card border border-border rounded-3xl p-8 lg:p-10">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Send us a Message</h2>
-              <p className="text-muted-foreground mb-8">
-                Fill out the form and our solutions team will get back to you within 24–48 hours.
-              </p>
-
-              {isSubmitted ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-8 h-8 text-green-500" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Your email is ready</h3>
-                  <p className="text-muted-foreground">
-                    Your email app should have opened with your message pre-filled — just hit send.
-                    If it didn't open, email us directly at{' '}
-                    <a href="mailto:info@paynext.co.in" className="text-primary font-semibold hover:underline">info@paynext.co.in</a>.
-                    We reply within 24–48 hours.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <FieldGroup>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Field>
-                        <FieldLabel htmlFor="contact-name">Full Name</FieldLabel>
-                        <Input
-                          id="contact-name"
-                          name="name"
-                          placeholder="John Doe"
-                          value={formState.name}
-                          onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                          required
-                        />
-                      </Field>
-                      <Field>
-                        <FieldLabel htmlFor="contact-email">Work Email</FieldLabel>
-                        <Input
-                          id="contact-email"
-                          name="email"
-                          type="email"
-                          placeholder="john@yourbank.com"
-                          value={formState.email}
-                          onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                          required
-                        />
-                      </Field>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Field>
-                        <FieldLabel htmlFor="contact-company">Organisation Name</FieldLabel>
-                        <Input
-                          id="contact-company"
-                          name="company"
-                          placeholder="Your Bank / Fintech"
-                          value={formState.company}
-                          onChange={(e) => setFormState({ ...formState, company: e.target.value })}
-                        />
-                      </Field>
-                      <Field>
-                        <FieldLabel htmlFor="contact-phone">Phone Number</FieldLabel>
-                        <Input
-                          id="contact-phone"
-                          name="phone"
-                          type="tel"
-                          placeholder="+91 98765 43210"
-                          value={formState.phone}
-                          onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        />
-                      </Field>
-                    </div>
-                    <Field>
-                      <FieldLabel htmlFor="contact-interest">I'm interested in</FieldLabel>
-                      <Select value={formState.interest} onValueChange={(value) => setFormState({ ...formState, interest: value })}>
-                        <SelectTrigger id="contact-interest">
-                          <SelectValue placeholder="Select a product or service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="perseuspay">PerseusPay — Core Switching & Card Processing</SelectItem>
-                          <SelectItem value="vista">VISTA — Acquiring Management Platform</SelectItem>
-                          <SelectItem value="europa">Europa — Payment Orchestration Platform</SelectItem>
-                          <SelectItem value="pos">POS / MPOS Solutions</SelectItem>
-                          <SelectItem value="ecommerce">E-Commerce Gateway</SelectItem>
-                          <SelectItem value="bharatqr">Bharat QR & UPI</SelectItem>
-                          <SelectItem value="demo">Request a Demo</SelectItem>
-                          <SelectItem value="technical">Technical Consultation</SelectItem>
-                          <SelectItem value="partnership">Partnership / Integration Inquiry</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </Field>
-                    <Field>
-                      <FieldLabel htmlFor="contact-message">Message</FieldLabel>
-                      <Textarea
-                        id="contact-message"
-                        name="message"
-                        placeholder="Tell us about your payment infrastructure requirements..."
-                        rows={5}
-                        value={formState.message}
-                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                        required
-                      />
-                    </Field>
-                    <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSubmitting}>
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
-                      <Send className="ml-2 w-4 h-4" />
-                    </Button>
-                  </FieldGroup>
-                </form>
-              )}
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className={`bg-card border border-border rounded-2xl p-6 ${index === 0 ? 'sm:col-span-2' : ''}`}>
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <info.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
-                    {info.lines.map((line, i) => (
-                      <p key={i} className="text-sm text-muted-foreground leading-relaxed">{line}</p>
-                    ))}
+            <Reveal variant="right" className="min-w-0 space-y-6" delay={0.1}>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                {contactInfo.map((info) => (
+                  <div
+                    key={info.title}
+                    className={`hover-card rounded-3xl border border-border bg-card p-6 sm:p-8 ${info.wide ? 'sm:col-span-2' : ''}`}
+                  >
+                    <IconTile icon={info.icon} className="mb-5" />
+                    <h3 className="mb-2 font-semibold text-foreground">{info.title}</h3>
+                    {info.href && !info.linkLabel ? (
+                      <a href={info.href} className="inline-flex min-h-11 items-center break-all text-sm font-medium text-brand hover:underline">
+                        {info.lines[0]}
+                      </a>
+                    ) : (
+                      info.lines.map((line, i) => (
+                        <p key={i} className={`break-words text-sm leading-relaxed ${i === 0 && info.linkLabel ? 'font-medium text-foreground' : 'text-muted-foreground'}`}>
+                          {line}
+                        </p>
+                      ))
+                    )}
+                    {info.linkLabel && (
+                      <a
+                        href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-brand hover:underline"
+                      >
+                        <MapPin className="h-4 w-4" aria-hidden="true" /> {info.linkLabel}
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
 
-              {/* What happens next */}
-              <div className="bg-card border border-border rounded-2xl p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <MessageSquare className="w-6 h-6 text-primary" />
-                  <h3 className="text-xl font-semibold text-foreground">What Happens Next?</h3>
-                </div>
-                <div className="space-y-5">
-                  {[
-                    { step: '01', title: 'We review your inquiry', desc: 'Our solutions team reads every message and matches you with the right expert.' },
-                    { step: '02', title: 'Response within 24–48 hrs', desc: 'Expect a reply at info@paynext.co.in with initial guidance or a meeting invite.' },
-                    { step: '03', title: 'Technical Consultation', desc: 'We schedule a deep-dive session to understand your infrastructure requirements.' },
-                    { step: '04', title: 'Tailored Proposal', desc: 'Receive a solution proposal with implementation timeline — typically just 1 week.' },
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <span className="text-primary font-bold text-sm font-mono mt-0.5">{item.step}</span>
-                      <div>
-                        <p className="font-medium text-foreground text-sm">{item.title}</p>
-                        <p className="text-muted-foreground text-sm mt-0.5">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Direct email CTA */}
-              <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
+              <div className="flex items-center gap-4 rounded-3xl border border-border bg-brand-soft p-6">
+                <IconTile icon={Mail} className="shrink-0" />
+                <div className="min-w-0">
                   <p className="text-sm text-muted-foreground">For Enterprise Inquiries</p>
-                  <a href="mailto:info@paynext.co.in" className="text-primary font-semibold hover:underline">
+                  <a
+                    href="mailto:info@paynext.co.in"
+                    className="inline-flex min-h-11 items-center break-all font-semibold text-brand hover:underline"
+                  >
                     info@paynext.co.in
                   </a>
                 </div>
               </div>
 
               {/* Technical Consultation CTA */}
-              <div className="bg-card border border-border rounded-2xl p-6 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MessageSquare className="w-6 h-6 text-primary" />
-                </div>
-                <div>
+              <div className="hover-card flex items-center gap-4 rounded-3xl border border-border bg-card p-6">
+                <IconTile icon={MessageSquare} className="shrink-0" />
+                <div className="min-w-0">
                   <p className="text-sm text-muted-foreground">For Technical Discussions</p>
-                  <p className="text-foreground font-medium text-sm">
+                  <p className="text-sm font-medium text-foreground">
                     Schedule a Technical Consultation through our website
                   </p>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
-        </div>
+        </Container>
       </section>
-    </main>
+    </>
   )
 }
