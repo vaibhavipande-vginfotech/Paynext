@@ -42,7 +42,7 @@ export default function LegalDocument({ eyebrow, doc, lead, children }) {
         <Container>
           <div className={hasToc ? "lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-12 xl:gap-16" : ""}>
             {hasToc && (
-              <aside className="hidden lg:block">
+              <div className="hidden lg:block">
                 <nav aria-label={title} className="sticky top-28">
                   <ul className="space-y-1 border-l border-border">
                     {sections.map((section) => (
@@ -57,7 +57,7 @@ export default function LegalDocument({ eyebrow, doc, lead, children }) {
                     ))}
                   </ul>
                 </nav>
-              </aside>
+              </div>
             )}
 
             <article className={`mx-auto min-w-0 max-w-3xl space-y-12 ${hasToc ? "lg:mx-0" : ""}`}>

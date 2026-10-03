@@ -80,7 +80,7 @@ export default function Footer() {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="eyebrow mb-4">{col.title}</h3>
+              <h2 className="eyebrow mb-4">{col.title}</h2>
               <ul className="space-y-2.5">
                 {col.items.map((it) => (
                   <li key={it.href + it.name}>

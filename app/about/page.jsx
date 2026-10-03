@@ -160,7 +160,7 @@ export default function AboutPage() {
           </Reveal>
           <ol className="relative mx-auto mt-12 max-w-3xl space-y-4 border-l border-border pl-8">
             {milestones.map((m, i) => (
-              <Reveal key={m.year} delay={(i % 3) * 0.05} className="hover-card relative rounded-2xl border border-border bg-card p-6">
+              <Reveal as="li" key={m.year} delay={(i % 3) * 0.05} className="hover-card relative rounded-2xl border border-border bg-card p-6">
                 <span className="absolute -left-[41px] top-7 h-4 w-4 rounded-full border-4 border-background bg-primary" aria-hidden="true" />
                 <p className="text-sm font-semibold text-brand">{m.year}</p>
                 <h3 className="mt-1 text-lg font-semibold text-foreground">{m.title}</h3>

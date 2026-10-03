@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { motion, useInView, useScroll, useTransform, useReducedMotion } from "framer-motion"
 
 /* ───────────────── Radiating lines (hero backdrop) ─────────────────
@@ -175,11 +175,21 @@ export function CountUp({ value, className = "" }) {
   const inView = useInView(ref, { once: true, amount: 0.6 })
   const reduce = useReducedMotion()
   const m = String(value).match(/^(\D*)([\d.]+)(.*)$/)
-  const [shown, setShown] = useState(m ? `${m[1]}0${m[3]}` : value)
+  // Server HTML carries the real figure (search engines, AI crawlers, link previews, no-JS visitors).
+  const [shown, setShown] = useState(value)
+  const armed = useRef(false)
+
+  // In the browser only: reset to zero before the count-up starts.
+  useLayoutEffect(() => {
+    if (m && !reduce) {
+      armed.current = true
+      setShown(`${m[1]}0${m[3]}`)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
-    if (!m || !inView) return
-    if (reduce) return setShown(value)
+    if (!m || !inView || !armed.current) return
     const target = parseFloat(m[2])
     const decimals = (m[2].split(".")[1] || "").length
     const start = performance.now()
