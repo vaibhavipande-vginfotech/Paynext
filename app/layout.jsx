@@ -5,6 +5,7 @@ import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
 import { BackToTop } from '@/components/site/scroll-extras'
 import JsonLd from '@/components/site/json-ld'
+import BreadcrumbJsonLd from '@/components/site/breadcrumb-json-ld'
 import { SITE_URL, OG_IMAGE } from '@/lib/seo'
 import { brand, contact, engines } from '@/lib/site-content'
 import './globals.css'
@@ -68,6 +69,8 @@ const organization = {
   image: `${SITE_URL}/og.png`,
   description: brand.positioning,
   slogan: 'One Switch. Every Channel. Total Control.',
+  foundingDate: '2017',
+  foundingLocation: 'Mumbai, India',
   email: contact.email,
   telephone: contact.phone,
   address: {
@@ -104,6 +107,7 @@ export default function RootLayout({ children }) {
     <html lang="en-IN" className={poppins.variable} suppressHydrationWarning>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <JsonLd data={[organization, website]} />
+        <BreadcrumbJsonLd />
         <noscript>
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important;filter:none!important}`}</style>
         </noscript>

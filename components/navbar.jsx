@@ -96,10 +96,13 @@ export default function Navbar() {
 
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname?.startsWith(href))
 
+  // Header background, border and blur fade together on scroll (blur used to snap on, causing a flash).
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? "border-b border-border bg-background/85 backdrop-blur-xl" : "border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ${
+        scrolled || open
+          ? "border-border bg-background/92 shadow-[0_6px_20px_-12px_rgba(15,45,78,0.25)] [backdrop-filter:blur(16px)]"
+          : "border-transparent bg-transparent [backdrop-filter:blur(0px)]"
       }`}
     >
       <div className="top-stripe h-[3px] w-full" aria-hidden="true" />

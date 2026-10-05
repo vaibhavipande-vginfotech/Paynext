@@ -161,7 +161,7 @@ export default function HomePage() {
               <li key={step} className="flex items-center gap-3">
                 <span
                   className={`rounded-full border px-4 py-2 ${
-                    i === 2 ? "border-[#2489D8] bg-[#2489D8] text-white" : "border-white/20 text-white/80"
+                    i === 2 ? "border-[#1A73B8] bg-[#1A73B8] text-white" : "border-white/20 text-white/80"
                   }`}
                 >
                   {step}

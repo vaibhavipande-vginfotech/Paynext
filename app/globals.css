@@ -22,7 +22,7 @@
   --secondary-foreground: #0f2d4e;
   --muted: #f1f5f9;
   --muted-foreground: #4b5563;      /* body text */
-  --accent: #2489d8;                /* accent light */
+  --accent: #1668a8;                /* accent text (AA on white + tinted chips) */
   --accent-foreground: #ffffff;
   --destructive: #c62828;
   --destructive-foreground: #ffffff;
@@ -30,11 +30,11 @@
   --input: #e9eaec;
   --ring: #1a73b8;
 
-  --brand: #1a73b8;                 /* primary accent */
+  --brand: #1668a8;                 /* primary accent text (AA 4.9:1 on tinted chips) */
   --brand-soft: rgba(26, 115, 184, 0.1);
-  --platinum: #1a73b8;              /* eyebrow / small label */
+  --platinum: #1668a8;              /* eyebrow / small label */
   --nav-text: #374151;
-  --growth: #2489d8;
+  --growth: #1668a8;
   --surface-raised: #ffffff;
   --hairline: rgba(15, 45, 78, 0.05); /* grid lines */
   --grad-from: #1a73b8;
@@ -76,7 +76,7 @@
   --card-foreground: #ffffff;
   --popover: #0f2d4e;
   --popover-foreground: #ffffff;
-  --primary: #2489d8;
+  --primary: #1a73b8;               /* white text 5.0:1 */
   --primary-foreground: #ffffff;
   --secondary: rgba(255, 255, 255, 0.08);
   --secondary-foreground: #ffffff;
@@ -90,19 +90,19 @@
   --input: rgba(255, 255, 255, 0.24);
   --ring: #7cc0f0;
 
-  --brand: #2489d8;
+  --brand: #7cc0f0;                 /* text on navy 7.1:1 */
   --brand-soft: rgba(36, 137, 216, 0.16);
   --platinum: #7cc0f0;
   --nav-text: rgba(255, 255, 255, 0.82);
   --growth: #7cc0f0;
   --surface-raised: #0f2d4e;
   --hairline: rgba(255, 255, 255, 0.045);
-  --grad-from: #2489d8;
+  --grad-from: #4fa6e6;
   --grad-to: #7cc0f0;
   --glow-1: rgba(36, 137, 216, 0.28);
   --glow-2: rgba(26, 115, 184, 0.24);
   --stripe: linear-gradient(90deg, #1a73b8, #2489d8, #7cc0f0);
-  --btn-bg: linear-gradient(135deg, #2489d8, #1a73b8);
+  --btn-bg: linear-gradient(135deg, #1a73b8, #1668a8); /* white text >= 5.0:1 */
   --btn-text: #ffffff;
   --btn-shadow: 0 8px 22px rgba(26, 115, 184, 0.3);
   --btn2-bg: rgba(255, 255, 255, 0.08);
@@ -119,7 +119,7 @@
 
   --sidebar: #0f2d4e;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #2489d8;
+  --sidebar-primary: #1a73b8;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: rgba(255, 255, 255, 0.08);
   --sidebar-accent-foreground: #ffffff;

@@ -13,8 +13,9 @@ export default function HomeHero() {
   const ref = useRef(null)
   const reduce = useReducedMotion()
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
-  const textY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 140])
-  const textOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduce ? 1 : 0])
+  // Text fades out before it reaches the navbar, so it never shows through it.
+  const textY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 90])
+  const textOpacity = useTransform(scrollYProgress, [0, 0.4], [1, reduce ? 1 : 0])
   const bgY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 60])
 
   return (
