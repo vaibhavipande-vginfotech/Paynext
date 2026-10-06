@@ -96,15 +96,18 @@ export default function Navbar() {
 
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname?.startsWith(href))
 
-  // Header background, border and blur fade together on scroll (blur used to snap on, causing a flash).
+  // The scrolled background + blur live on their own layer, not on <header>: a backdrop-filter on
+  // <header> would trap the fixed mobile menu inside the 75px header box. All parts fade together.
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ${
-        scrolled || open
-          ? "border-border bg-background/92 shadow-[0_6px_20px_-12px_rgba(15,45,78,0.25)] [backdrop-filter:blur(16px)]"
-          : "border-transparent bg-transparent [backdrop-filter:blur(0px)]"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div
+        aria-hidden="true"
+        className={`absolute inset-0 -z-10 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ${
+          scrolled || open
+            ? "border-border bg-background/92 shadow-[0_6px_20px_-12px_rgba(15,45,78,0.25)] [backdrop-filter:blur(16px)]"
+            : "border-transparent bg-transparent [backdrop-filter:blur(0px)]"
+        }`}
+      />
       <div className="top-stripe h-[3px] w-full" aria-hidden="true" />
       <ScrollProgress />
       <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 sm:px-6 lg:px-8" aria-label="Main">

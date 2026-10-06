@@ -180,6 +180,9 @@
   }
   html {
     background-color: var(--background);
+    /* Also needed on <html>: mobile browsers ignore body-only clipping and widen the page
+       to fit off-screen slide-ins, which zooms out the layout and cuts off the navbar. */
+    overflow-x: clip;
   }
   body {
     @apply text-foreground;
