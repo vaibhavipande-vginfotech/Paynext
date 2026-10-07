@@ -1,0 +1,146 @@
+/*
+ * SAVED THEME: Navy & Blue (used until 7 Oct 2026, commit 3e9317d)
+ *
+ * To restore: replace the ":root { ... }" and ".dark { ... }" blocks at the top of
+ * app/globals.css with the two blocks below, then swap the hard-coded colours listed
+ * at the bottom of this file back, or restore a whole file with: git checkout 3e9317d -- <file>
+ * All values here passed WCAG AA contrast.
+ */
+
+/*
+ * PayNext — Navy & Blue theme (client spec, 29 Sep 2026).
+ * Font: Poppins 400/500/600/700. Buttons: pill (9999px).
+ */
+
+/* Light (default) */
+:root {
+  --background: #f9fafb;
+  --foreground: #0f2d4e;            /* headline text */
+  --card: #ffffff;
+  --card-foreground: #0f2d4e;
+  --popover: #ffffff;
+  --popover-foreground: #0f2d4e;
+  --primary: #0f2d4e;               /* primary button */
+  --primary-foreground: #ffffff;
+  --secondary: #eef4fa;
+  --secondary-foreground: #0f2d4e;
+  --muted: #f1f5f9;
+  --muted-foreground: #4b5563;      /* body text */
+  --accent: #1668a8;                /* accent text (AA on white + tinted chips) */
+  --accent-foreground: #ffffff;
+  --destructive: #c62828;
+  --destructive-foreground: #ffffff;
+  --border: #e9eaec;
+  --input: #e9eaec;
+  --ring: #1a73b8;
+
+  --brand: #1668a8;                 /* primary accent text (AA 4.9:1 on tinted chips) */
+  --brand-soft: rgba(26, 115, 184, 0.1);
+  --platinum: #1668a8;              /* eyebrow / small label */
+  --nav-text: #374151;
+  --growth: #1668a8;
+  --surface-raised: #ffffff;
+  --hairline: rgba(15, 45, 78, 0.05); /* grid lines */
+  --grad-from: #1a73b8;
+  --grad-to: #2489d8;
+  --glow-1: rgba(26, 115, 184, 0.16);
+  --glow-2: rgba(36, 137, 216, 0.14);
+  --stripe: linear-gradient(90deg, #0f2d4e, #1a73b8, #2489d8);
+  --btn-bg: #0f2d4e;
+  --btn-text: #ffffff;
+  --btn-shadow: 0 8px 24px rgba(15, 45, 78, 0.28);
+  --btn2-bg: #ffffff;
+  --btn2-text: #0f2d4e;
+  --btn2-border: 1.5px solid rgba(26, 115, 184, 0.35);
+  --icon-btn-bg: #ffffff;
+  --page-bg: #f9fafb;
+
+  --chart-1: #1a73b8;
+  --chart-2: #2489d8;
+  --chart-3: #0f2d4e;
+  --chart-4: #4b5563;
+  --chart-5: #7cc0f0;
+  --radius: 0.75rem;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f2d4e;
+  --sidebar-primary: #0f2d4e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef4fa;
+  --sidebar-accent-foreground: #0f2d4e;
+  --sidebar-border: #e9eaec;
+  --sidebar-ring: #1a73b8;
+}
+
+/* Dark */
+.dark {
+  --background: #081a2e;            /* base dark (solid) */
+  --foreground: #ffffff;
+  --card: #0f2d4e;
+  --card-foreground: #ffffff;
+  --popover: #0f2d4e;
+  --popover-foreground: #ffffff;
+  --primary: #1a73b8;               /* white text 5.0:1 */
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: #ffffff;
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: rgba(255, 255, 255, 0.8);
+  --accent: #7cc0f0;
+  --accent-foreground: #081a2e;
+  --destructive: #ef5350;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.18);
+  --input: rgba(255, 255, 255, 0.24);
+  --ring: #7cc0f0;
+
+  --brand: #7cc0f0;                 /* text on navy 7.1:1 */
+  --brand-soft: rgba(36, 137, 216, 0.16);
+  --platinum: #7cc0f0;
+  --nav-text: rgba(255, 255, 255, 0.82);
+  --growth: #7cc0f0;
+  --surface-raised: #0f2d4e;
+  --hairline: rgba(255, 255, 255, 0.045);
+  --grad-from: #4fa6e6;
+  --grad-to: #7cc0f0;
+  --glow-1: rgba(36, 137, 216, 0.28);
+  --glow-2: rgba(26, 115, 184, 0.24);
+  --stripe: linear-gradient(90deg, #1a73b8, #2489d8, #7cc0f0);
+  --btn-bg: linear-gradient(135deg, #1a73b8, #1668a8); /* white text >= 5.0:1 */
+  --btn-text: #ffffff;
+  --btn-shadow: 0 8px 22px rgba(26, 115, 184, 0.3);
+  --btn2-bg: rgba(255, 255, 255, 0.08);
+  --btn2-text: #ffffff;
+  --btn2-border: 1px solid rgba(255, 255, 255, 0.24);
+  --icon-btn-bg: rgba(255, 255, 255, 0.1);
+  --page-bg: linear-gradient(160deg, #081a2e, #0f2d4e 70%, #123a63);
+
+  --chart-1: #2489d8;
+  --chart-2: #7cc0f0;
+  --chart-3: #1a73b8;
+  --chart-4: rgba(255, 255, 255, 0.8);
+  --chart-5: #123a63;
+
+  --sidebar: #0f2d4e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1a73b8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.18);
+  --sidebar-ring: #7cc0f0;
+}
+
+/*
+ * Hard-coded colours that went with this theme (outside globals.css):
+ *   app/layout.jsx                      themeColor light #F9FAFB, dark #081A2E
+ *   app/page.jsx                        text-[#7CC0F0], text-[#0F2D4E], border/bg-[#1A73B8],
+ *                                       bg-[linear-gradient(160deg,#0F2D4E,#1A73B8)]
+ *   components/navbar.jsx               shadow rgba(15,45,78,0.25)
+ *   components/site/cta-band.jsx        bg-[linear-gradient(135deg,#0F2D4E,#123A63)],
+ *                                       glow rgba(36,137,216,0.45), button text #0F2D4E, icons #7CC0F0
+ *   components/site/hero-background.jsx fallbacks #1A73B8, #2489D8
+ *   components/site/motion.jsx          bg-[linear-gradient(160deg,#081A2E,#0F2D4E_70%,#123A63)],
+ *                                       globe stops #7CC0F0 / #081A2E
+ *   components/site/platform-stack.jsx  icon text-[#7CC0F0]
+ */

@@ -54,7 +54,7 @@ function Pulses() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
     const colors = () => {
       const c = getComputedStyle(document.documentElement)
-      return [c.getPropertyValue("--brand").trim() || "#1A73B8", c.getPropertyValue("--accent").trim() || "#2489D8", c.getPropertyValue("--grad-to").trim() || "#2489D8"]
+      return [c.getPropertyValue("--brand").trim() || "#4F5BD5", c.getPropertyValue("--accent").trim() || "#6A3CF0", c.getPropertyValue("--grad-to").trim() || "#6A3CF0"]
     }
     let palette = colors()
 

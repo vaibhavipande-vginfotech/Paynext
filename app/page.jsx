@@ -143,12 +143,12 @@ export default function HomePage() {
               {platform.name} · {platform.kicker}
             </p>
             <h2 className="mt-4 text-3xl font-semibold sm:text-5xl">
-              {platform.name} — The international payments <span className="text-[#7CC0F0]">operating platform</span>
+              {platform.name} — The international payments <span className="text-[#A5ADF2]">operating platform</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-white/70 sm:text-lg">{platform.lead}</p>
             <Link
               href="/platform"
-              className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-[#0F2D4E] transition-opacity hover:opacity-90"
+              className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-[#1C1F3F] transition-opacity hover:opacity-90"
             >
               Explore PayNext+ <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
@@ -161,7 +161,7 @@ export default function HomePage() {
               <li key={step} className="flex items-center gap-3">
                 <span
                   className={`rounded-full border px-4 py-2 ${
-                    i === 2 ? "border-[#1A73B8] bg-[#1A73B8] text-white" : "border-white/20 text-white/80"
+                    i === 2 ? "border-[#4F5BD5] bg-[#4F5BD5] text-white" : "border-white/20 text-white/80"
                   }`}
                 >
                   {step}
@@ -207,7 +207,7 @@ export default function HomePage() {
       {/* GLOBAL POSITIONING — rounded violet banner with globe */}
       <section className="pb-24">
         <Container>
-          <Reveal variant="scale" className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#0F2D4E,#1A73B8)] px-6 pb-14 pt-10 text-center text-white sm:px-12">
+          <Reveal variant="scale" className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(160deg,#1C1F3F,#2A2E6B)] px-6 pb-14 pt-10 text-center text-white sm:px-12">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_70%_at_50%_0%,rgba(124,192,240,0.45),transparent_70%)]" />
             <div className="relative">
               <Globe size={200} className="mx-auto" />
@@ -216,7 +216,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 {audiences.map((a) => (
                   <span key={a.id} className="flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium backdrop-blur">
-                    <a.icon className="h-4 w-4 text-[#7CC0F0]" aria-hidden="true" /> {a.name}
+                    <a.icon className="h-4 w-4 text-[#A5ADF2]" aria-hidden="true" /> {a.name}
                   </span>
                 ))}
               </div>

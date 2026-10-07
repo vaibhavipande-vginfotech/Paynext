@@ -10,7 +10,7 @@ export default function PlatformStack({ tone = "default" }) {
     : "border-border bg-background/70 hover:border-brand/50"
   const title = dark ? "text-white" : "text-foreground"
   const sub = dark ? "text-white/60" : "text-muted-foreground"
-  const icon = dark ? "text-[#7CC0F0]" : "text-brand"
+  const icon = dark ? "text-[#A5ADF2]" : "text-brand"
 
   return (
     <div

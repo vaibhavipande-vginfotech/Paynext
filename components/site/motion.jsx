@@ -100,7 +100,7 @@ export function CircleReveal({ children, className = "" }) {
   const clip = useTransform(radius, (r) => `circle(${r} at 50% 45%)`)
   return (
     <section ref={ref} className={`relative ${className}`}>
-      <motion.div style={{ clipPath: clip }} className="relative overflow-hidden bg-[linear-gradient(160deg,#081A2E,#0F2D4E_70%,#123A63)] text-white">
+      <motion.div style={{ clipPath: clip }} className="relative overflow-hidden bg-[linear-gradient(160deg,#0F1128,#1C1F3F_70%,#2A2E6B)] text-white">
         <Rings />
         <div className="relative">{children}</div>
       </motion.div>
@@ -156,8 +156,8 @@ export function Globe({ size = 280, className = "" }) {
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className={className} aria-hidden="true">
       <defs>
         <radialGradient id="globe-fill" cx="40%" cy="35%" r="70%">
-          <stop offset="0" stopColor="#7CC0F0" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#081A2E" stopOpacity="0.95" />
+          <stop offset="0" stopColor="#A5ADF2" stopOpacity="0.55" />
+          <stop offset="1" stopColor="#0F1128" stopOpacity="0.95" />
         </radialGradient>
       </defs>
       <circle cx={size / 2} cy={size / 2} r={R} fill="url(#globe-fill)" />

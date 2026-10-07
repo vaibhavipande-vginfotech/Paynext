@@ -4,127 +4,129 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * PayNext — Navy & Blue theme (client spec, 29 Sep 2026).
- * Font: Poppins 400/500/600/700. Buttons: pill (9999px).
+ * PayNext — Midnight Indigo theme (Option F, 7 Oct 2026).
+ * Indigo + periwinkle sit in the same family as the violet logo (#4F00CD → #8030FD);
+ * the top stripe and headline gradient end in the logo violet to tie them together.
+ * All text colours meet WCAG AA. Font: Poppins 400/500/600/700. Buttons: pill (9999px).
  */
 
 /* Light (default) */
 :root {
-  --background: #f9fafb;
-  --foreground: #0f2d4e;            /* headline text */
+  --background: #f5f6fa;            /* surface */
+  --foreground: #1c1f3f;            /* midnight — headings 14.8:1 */
   --card: #ffffff;
-  --card-foreground: #0f2d4e;
+  --card-foreground: #1c1f3f;
   --popover: #ffffff;
-  --popover-foreground: #0f2d4e;
-  --primary: #0f2d4e;               /* primary button */
+  --popover-foreground: #1c1f3f;
+  --primary: #4f5bd5;               /* periwinkle — white text 5.5:1 */
   --primary-foreground: #ffffff;
-  --secondary: #eef4fa;
-  --secondary-foreground: #0f2d4e;
-  --muted: #f1f5f9;
-  --muted-foreground: #4b5563;      /* body text */
-  --accent: #1668a8;                /* accent text (AA on white + tinted chips) */
+  --secondary: #eceefb;
+  --secondary-foreground: #1c1f3f;
+  --muted: #eef0f7;
+  --muted-foreground: #5a5f7d;      /* body text 5.8:1 */
+  --accent: #4f5bd5;
   --accent-foreground: #ffffff;
   --destructive: #c62828;
   --destructive-foreground: #ffffff;
-  --border: #e9eaec;
-  --input: #e9eaec;
-  --ring: #1a73b8;
+  --border: #e0e2ee;                /* line */
+  --input: #e0e2ee;
+  --ring: #4f5bd5;
 
-  --brand: #1668a8;                 /* primary accent text (AA 4.9:1 on tinted chips) */
-  --brand-soft: rgba(26, 115, 184, 0.1);
-  --platinum: #1668a8;              /* eyebrow / small label */
-  --nav-text: #374151;
-  --growth: #1668a8;
+  --brand: #4a56d0;                 /* accent text: periwinkle a shade deeper so it passes AA (4.8:1) on tinted panels too */
+  --brand-soft: rgba(79, 91, 213, 0.1);
+  --platinum: #4350c4;              /* eyebrow / small label — 5.8:1 even on tinted panels */
+  --nav-text: #3b3f5c;
+  --growth: #4f5bd5;
   --surface-raised: #ffffff;
-  --hairline: rgba(15, 45, 78, 0.05); /* grid lines */
-  --grad-from: #1a73b8;
-  --grad-to: #2489d8;
-  --glow-1: rgba(26, 115, 184, 0.16);
-  --glow-2: rgba(36, 137, 216, 0.14);
-  --stripe: linear-gradient(90deg, #0f2d4e, #1a73b8, #2489d8);
-  --btn-bg: #0f2d4e;
+  --hairline: rgba(28, 31, 63, 0.05); /* grid lines */
+  --grad-from: #4f5bd5;
+  --grad-to: #6a3cf0;               /* towards the logo violet; 5.5:1 */
+  --glow-1: rgba(79, 91, 213, 0.16);
+  --glow-2: rgba(128, 48, 253, 0.1);
+  --stripe: linear-gradient(90deg, #1c1f3f, #4f5bd5, #8030fd);
+  --btn-bg: #4f5bd5;
   --btn-text: #ffffff;
-  --btn-shadow: 0 8px 24px rgba(15, 45, 78, 0.28);
+  --btn-shadow: 0 8px 24px rgba(79, 91, 213, 0.3);
   --btn2-bg: #ffffff;
-  --btn2-text: #0f2d4e;
-  --btn2-border: 1.5px solid rgba(26, 115, 184, 0.35);
+  --btn2-text: #1c1f3f;
+  --btn2-border: 1.5px solid rgba(79, 91, 213, 0.3);
   --icon-btn-bg: #ffffff;
-  --page-bg: #f9fafb;
+  --page-bg: #f5f6fa;
 
-  --chart-1: #1a73b8;
-  --chart-2: #2489d8;
-  --chart-3: #0f2d4e;
-  --chart-4: #4b5563;
-  --chart-5: #7cc0f0;
+  --chart-1: #4f5bd5;
+  --chart-2: #8030fd;
+  --chart-3: #1c1f3f;
+  --chart-4: #5a5f7d;
+  --chart-5: #c5cbf5;
   --radius: 0.75rem;
 
   --sidebar: #ffffff;
-  --sidebar-foreground: #0f2d4e;
-  --sidebar-primary: #0f2d4e;
+  --sidebar-foreground: #1c1f3f;
+  --sidebar-primary: #4f5bd5;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eef4fa;
-  --sidebar-accent-foreground: #0f2d4e;
-  --sidebar-border: #e9eaec;
-  --sidebar-ring: #1a73b8;
+  --sidebar-accent: #eceefb;
+  --sidebar-accent-foreground: #1c1f3f;
+  --sidebar-border: #e0e2ee;
+  --sidebar-ring: #4f5bd5;
 }
 
 /* Dark */
 .dark {
-  --background: #081a2e;            /* base dark (solid) */
+  --background: #0f1128;            /* base dark (solid) */
   --foreground: #ffffff;
-  --card: #0f2d4e;
+  --card: #171a3b;
   --card-foreground: #ffffff;
-  --popover: #0f2d4e;
+  --popover: #171a3b;
   --popover-foreground: #ffffff;
-  --primary: #1a73b8;               /* white text 5.0:1 */
+  --primary: #4f5bd5;               /* white text 5.5:1 */
   --primary-foreground: #ffffff;
   --secondary: rgba(255, 255, 255, 0.08);
   --secondary-foreground: #ffffff;
   --muted: rgba(255, 255, 255, 0.06);
-  --muted-foreground: rgba(255, 255, 255, 0.8);
-  --accent: #7cc0f0;
-  --accent-foreground: #081a2e;
+  --muted-foreground: rgba(255, 255, 255, 0.78);
+  --accent: #a5adf2;
+  --accent-foreground: #0f1128;
   --destructive: #ef5350;
   --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.18);
-  --input: rgba(255, 255, 255, 0.24);
-  --ring: #7cc0f0;
+  --border: rgba(197, 203, 245, 0.16);
+  --input: rgba(197, 203, 245, 0.24);
+  --ring: #a5adf2;
 
-  --brand: #7cc0f0;                 /* text on navy 7.1:1 */
-  --brand-soft: rgba(36, 137, 216, 0.16);
-  --platinum: #7cc0f0;
+  --brand: #a5adf2;                 /* light periwinkle text — 7.9:1 on cards */
+  --brand-soft: rgba(79, 91, 213, 0.18);
+  --platinum: #c5cbf5;
   --nav-text: rgba(255, 255, 255, 0.82);
-  --growth: #7cc0f0;
-  --surface-raised: #0f2d4e;
+  --growth: #a5adf2;
+  --surface-raised: #1e2248;
   --hairline: rgba(255, 255, 255, 0.045);
-  --grad-from: #4fa6e6;
-  --grad-to: #7cc0f0;
-  --glow-1: rgba(36, 137, 216, 0.28);
-  --glow-2: rgba(26, 115, 184, 0.24);
-  --stripe: linear-gradient(90deg, #1a73b8, #2489d8, #7cc0f0);
-  --btn-bg: linear-gradient(135deg, #1a73b8, #1668a8); /* white text >= 5.0:1 */
-  --btn-text: #ffffff;
-  --btn-shadow: 0 8px 22px rgba(26, 115, 184, 0.3);
+  --grad-from: #a5adf2;
+  --grad-to: #b9a8fb;               /* soft logo violet */
+  --glow-1: rgba(79, 91, 213, 0.3);
+  --glow-2: rgba(128, 48, 253, 0.18);
+  --stripe: linear-gradient(90deg, #4f5bd5, #a5adf2, #8030fd);
+  --btn-bg: #c5cbf5;                /* peri soft pill, midnight text 10:1 */
+  --btn-text: #1c1f3f;
+  --btn-shadow: 0 8px 22px rgba(79, 91, 213, 0.3);
   --btn2-bg: rgba(255, 255, 255, 0.08);
   --btn2-text: #ffffff;
-  --btn2-border: 1px solid rgba(255, 255, 255, 0.24);
+  --btn2-border: 1px solid rgba(197, 203, 245, 0.28);
   --icon-btn-bg: rgba(255, 255, 255, 0.1);
-  --page-bg: linear-gradient(160deg, #081a2e, #0f2d4e 70%, #123a63);
+  --page-bg: linear-gradient(160deg, #0f1128, #171a3b 70%, #1e2248);
 
-  --chart-1: #2489d8;
-  --chart-2: #7cc0f0;
-  --chart-3: #1a73b8;
+  --chart-1: #4f5bd5;
+  --chart-2: #a5adf2;
+  --chart-3: #8030fd;
   --chart-4: rgba(255, 255, 255, 0.8);
-  --chart-5: #123a63;
+  --chart-5: #2a2e6b;
 
-  --sidebar: #0f2d4e;
+  --sidebar: #171a3b;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #1a73b8;
+  --sidebar-primary: #4f5bd5;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: rgba(255, 255, 255, 0.08);
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.18);
-  --sidebar-ring: #7cc0f0;
+  --sidebar-border: rgba(197, 203, 245, 0.16);
+  --sidebar-ring: #a5adf2;
 }
 
 @theme inline {
@@ -226,7 +228,7 @@
   .text-nav {
     color: var(--nav-text);
   }
-  /* Accent gradient text (light #1A73B8 → #2489D8, dark #2489D8 → #7CC0F0). */
+  /* Accent gradient text (light periwinkle → violet, dark light periwinkle → soft violet). */
   .text-brand-gradient {
     background-image: linear-gradient(90deg, var(--grad-from), var(--grad-to));
     -webkit-background-clip: text;

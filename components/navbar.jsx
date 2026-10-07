@@ -104,7 +104,7 @@ export default function Navbar() {
         aria-hidden="true"
         className={`absolute inset-0 -z-10 border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300 ${
           scrolled || open
-            ? "border-border bg-background/92 shadow-[0_6px_20px_-12px_rgba(15,45,78,0.25)] [backdrop-filter:blur(16px)]"
+            ? "border-border bg-background/92 shadow-[0_6px_20px_-12px_rgba(28,31,63,0.25)] [backdrop-filter:blur(16px)]"
             : "border-transparent bg-transparent [backdrop-filter:blur(0px)]"
         }`}
       />
