@@ -5,7 +5,7 @@ import { Container } from "@/components/site/primitives"
 
 export default function PageHero({ eyebrow, title, highlight, lead, primary, secondary, children }) {
   return (
-    <section className="hero-surface relative overflow-hidden border-b border-border pb-16 pt-28 sm:pb-20 sm:pt-40">
+    <section className="hero-surface surface-lavender relative overflow-hidden border-b border-border pb-16 pt-28 sm:pb-20 sm:pt-40">
       <Container className="relative">
         <div className="mx-auto max-w-4xl text-center">
           {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
