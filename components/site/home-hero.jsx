@@ -35,8 +35,8 @@ function NetworkDiagram() {
         </radialGradient>
       </defs>
       {/* decorative circles, as in the design */}
-      <circle cx="470" cy="20" r="90" fill="#E3D5FF" opacity="0.7" />
-      <circle cx="40" cy="380" r="80" fill="#E3D5FF" opacity="0.6" />
+      <circle cx="470" cy="20" r="90" opacity="0.7" style={{ fill: "var(--art-c1)" }} />
+      <circle cx="40" cy="380" r="80" opacity="0.6" style={{ fill: "var(--art-c1)" }} />
 
       {NODES.map((n, i) => {
         const path = `M${CX},${CY} L${n.x},${n.y}`
@@ -74,8 +74,8 @@ function NetworkDiagram() {
         const w = n.label.length * 9 + 40
         return (
           <g key={`node-${n.label}`}>
-            <rect x={n.x - w / 2} y={n.y - 19} width={w} height="38" rx="10" fill="#FFFFFF" stroke="#E3D5FF" />
-            <text x={n.x} y={n.y + 5} textAnchor="middle" fontSize="14" fontWeight="600" fill="#1A1033" fontFamily="var(--font-poppins), Poppins, sans-serif">
+            <rect x={n.x - w / 2} y={n.y - 19} width={w} height="38" rx="10" style={{ fill: "var(--art-card)", stroke: "var(--art-line)" }} />
+            <text x={n.x} y={n.y + 5} textAnchor="middle" fontSize="14" fontWeight="600" style={{ fill: "var(--art-ink)" }} fontFamily="var(--font-poppins), Poppins, sans-serif">
               {n.label}
             </text>
           </g>
@@ -119,7 +119,7 @@ export default function HomeHero() {
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[1.75rem] bg-[#F1E8FF] p-4 shadow-[0_30px_80px_-20px_rgba(18,8,46,0.45)] sm:p-6"
+            className="rounded-[1.75rem] bg-[var(--art-bg)] p-4 ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(18,8,46,0.45)] sm:p-6"
           >
             <NetworkDiagram />
           </motion.div>

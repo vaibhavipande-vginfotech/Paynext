@@ -53,6 +53,16 @@
   --icon-btn-bg: #ffffff;
   --page-bg: #ffffff;
   --hero-bg: linear-gradient(120deg, #4f00cd 0%, #6a1bea 55%, #8030fd 100%);
+  /* illustration palette (switches with the theme) */
+  --art-bg: #f1e8ff;
+  --art-c1: #e3d5ff;
+  --art-c2: #e9deff;
+  --art-card: #ffffff;
+  --art-line: #e3d5ff;
+  --art-ink: #1a1033;
+  --art-accent: #4f00cd;
+  --art-device: #1a1033;
+  --art-key: #3a2d63;
 
   --chart-1: #4f00cd;
   --chart-2: #8030fd;
@@ -73,24 +83,24 @@
 
 /* Dark */
 .dark {
-  --background: #12082e;
+  --background: #0f0726;
   --foreground: #ffffff;
-  --card: #1a0f33;
+  --card: #1c1140;
   --card-foreground: #ffffff;
-  --popover: #1a0f33;
+  --popover: #1c1140;
   --popover-foreground: #ffffff;
   --primary: #6a1bea;               /* white text 7.1:1 */
   --primary-foreground: #ffffff;
   --secondary: rgba(255, 255, 255, 0.08);
   --secondary-foreground: #ffffff;
-  --muted: #1a0f33;
+  --muted: #160b33;                 /* section bands, a step lighter than the page */
   --muted-foreground: #c9bfea;      /* 10:1 on cards */
   --accent: #c4a8ff;
   --accent-foreground: #12082e;
   --destructive: #ef5350;
   --destructive-foreground: #ffffff;
-  --border: rgba(201, 191, 234, 0.16);
-  --input: rgba(201, 191, 234, 0.26);
+  --border: rgba(183, 155, 255, 0.18);
+  --input: rgba(183, 155, 255, 0.28);
   --ring: #b79bff;
 
   --brand: #b79bff;                 /* light violet text, 6.5:1+ */
@@ -98,7 +108,7 @@
   --platinum: #c4a8ff;
   --nav-text: rgba(255, 255, 255, 0.86);
   --growth: #6ee7a0;
-  --surface-raised: #291b59;
+  --surface-raised: #261753;
   --hairline: rgba(255, 255, 255, 0.05);
   --grad-from: #b79bff;
   --grad-to: #e4dcf8;
@@ -112,8 +122,20 @@
   --btn2-text: #ffffff;
   --btn2-border: 1px solid rgba(201, 191, 234, 0.28);
   --icon-btn-bg: rgba(255, 255, 255, 0.1);
-  --page-bg: #12082e;
-  --hero-bg: linear-gradient(120deg, #2a0a6b 0%, #4f00cd 60%, #6a1bea 100%);
+  --page-bg:
+    radial-gradient(60% 40% at 85% 0%, rgba(128, 48, 253, 0.16), transparent 70%),
+    radial-gradient(50% 35% at 0% 45%, rgba(79, 0, 205, 0.12), transparent 70%),
+    #0f0726;
+  --hero-bg: linear-gradient(120deg, #3a0a9c 0%, #4f00cd 55%, #6a1bea 100%);
+  --art-bg: #221548;
+  --art-c1: #2d1c66;
+  --art-c2: #281959;
+  --art-card: #1c1140;
+  --art-line: #43308a;
+  --art-ink: #ffffff;
+  --art-accent: #c4a8ff;
+  --art-device: #3a2a80;
+  --art-key: #5a47a8;
 
   --chart-1: #8030fd;
   --chart-2: #b79bff;
@@ -121,7 +143,7 @@
   --chart-4: rgba(255, 255, 255, 0.8);
   --chart-5: #42be5c;
 
-  --sidebar: #1a0f33;
+  --sidebar: #1c1140;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #6a1bea;
   --sidebar-primary-foreground: #ffffff;

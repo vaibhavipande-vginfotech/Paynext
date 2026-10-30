@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, Check, Server, ShieldCheck } from "lucide-react"
 import { Container, Eyebrow, Reveal } from "@/components/site/primitives"
-import { CountUp } from "@/components/site/motion"
+import { CountUp, Marquee } from "@/components/site/motion"
 import HomeHero from "@/components/site/home-hero"
 import SolutionsTabs from "@/components/site/solutions-tabs"
 import CtaBand from "@/components/site/cta-band"
@@ -16,6 +16,11 @@ import {
   compliance,
   faqHighlights,
   clients,
+  layers,
+  principles,
+  channelChips,
+  capabilityChips,
+  PLACEHOLDER,
   differentiation,
   audiences,
 } from "@/lib/site-content"
@@ -47,6 +52,7 @@ export default function HomePage() {
       <section className="relative z-10 -mt-16" aria-label="Trust and scale metrics">
         <Container>
           <Reveal className="rounded-3xl border border-border bg-card p-2 shadow-[0_24px_60px_-28px_rgba(79,0,205,0.35)]">
+            <Eyebrow className="px-5 pt-4 sm:px-7">Trust &amp; Scale Metrics</Eyebrow>
             <dl className="grid grid-cols-2 lg:grid-cols-4">
               {stats.map((s, i) => (
                 <div
@@ -98,6 +104,24 @@ export default function HomePage() {
             </ul>
           </Reveal>
         </Container>
+      </section>
+
+      {/* CHANNELS + CAPABILITIES — moving chip rows (terms from the master doc and deck) */}
+      <section className="surface-lavender mt-16 space-y-3 border-y border-border py-8" aria-label="Channels and capabilities">
+        <Marquee speed={45}>
+          {channelChips.map((c) => (
+            <span key={c} className="whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground">
+              {c}
+            </span>
+          ))}
+        </Marquee>
+        <Marquee speed={55} reverse>
+          {capabilityChips.map((c) => (
+            <span key={c} className="whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground">
+              {c}
+            </span>
+          ))}
+        </Marquee>
       </section>
 
       {/* CORE PLATFORMS — Classic cards */}
@@ -199,10 +223,10 @@ export default function HomePage() {
               <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                 {pillars.map((p, i) => (
                   <li key={p.id}>
-                    <Link href={`/platform#${p.id}`} className="block h-full rounded-2xl bg-white p-5 text-[#1A1033] transition-transform hover:-translate-y-1">
-                      <span className="font-mono text-xs text-[#4F00CD]">0{i + 1}</span>
+                    <Link href={`/platform#${p.id}`} className="block h-full rounded-2xl bg-white p-5 text-[#1A1033] transition-transform hover:-translate-y-1 dark:bg-[#1c1140] dark:text-white dark:ring-1 dark:ring-white/10">
+                      <span className="font-mono text-xs text-[#4F00CD] dark:text-[#C4A8FF]">0{i + 1}</span>
                       <p className="mt-2 text-lg font-bold">{p.name}</p>
-                      <ul className="mt-2 space-y-1 text-xs leading-snug text-[#574F70]">
+                      <ul className="mt-2 space-y-1 text-xs leading-snug text-[#574F70] dark:text-[#C9BFEA]">
                         {p.lines.map((l) => (
                           <li key={l}>{l}</li>
                         ))}
@@ -211,6 +235,28 @@ export default function HomePage() {
                   </li>
                 ))}
               </ol>
+              <ul className="mt-3 grid gap-3 sm:grid-cols-3">
+                {layers.map((l) => (
+                  <li key={l.id}>
+                    <Link href={l.href} className="block h-full rounded-2xl border border-white/25 bg-white/10 p-5 text-white backdrop-blur transition-colors hover:bg-white/15">
+                      <p className="flex items-center gap-2 font-bold">
+                        <l.icon className="h-4 w-4" aria-hidden="true" /> {l.name}
+                      </p>
+                      <p className="mt-1 text-xs font-medium uppercase tracking-wider text-white/85">{l.tag}</p>
+                      {l.placeholder ? (
+                        <p className="mt-3 text-xs italic text-white/85">{PLACEHOLDER}</p>
+                      ) : (
+                        <ul className="mt-3 space-y-1 text-xs leading-snug text-white/90">
+                          {l.lines.map((x) => (
+                            <li key={x}>{x}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-white/90">{principles.join("  •  ")}</p>
               <ol className="mt-10 flex flex-col gap-3 text-sm sm:flex-row sm:items-center">
                 {platform.ambition.map((step, i) => (
                   <li key={step} className="flex items-center gap-3">
@@ -219,6 +265,7 @@ export default function HomePage() {
                   </li>
                 ))}
               </ol>
+              <p className="mt-4 text-xs text-white/85">{platform.ambitionLine}</p>
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href="/platform"
@@ -243,7 +290,9 @@ export default function HomePage() {
         <Container>
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <Eyebrow>{platform.name}</Eyebrow>
+              <Eyebrow>
+                {platform.name} · {platform.kicker}
+              </Eyebrow>
               <h2 className="mt-4 text-3xl leading-tight text-foreground sm:text-[2.6rem]">Who we serve</h2>
             </div>
             <Link href="/who-we-serve" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline">
