@@ -1,5 +1,6 @@
 import { QrCode, CreditCard, Shield, RefreshCw, FileText, Headphones, Monitor, Globe } from 'lucide-react'
 import ProductPage from '@/components/site/product-page'
+import { oldServiceList } from '@/lib/legacy-content'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata = pageMeta("/products/BharatQR-UPI", {
@@ -7,33 +8,26 @@ export const metadata = pageMeta("/products/BharatQR-UPI", {
   description: 'Interoperable QR payments across MasterCard, Visa and RuPay. Dynamic or static QR codes — no POS machine required.',
 })
 
-const features = [
-  'Interoperable QR across RuPay, MasterCard & Visa',
-  'Dynamic & Static QR Codes — No POS Machine Required',
-  'UPI Collect & Intent Payment Flows',
-  'Instant Payment Confirmation & Notifications',
-  'PCI-DSS Certified Infrastructure',
-  'Reconciliation & Settlement',
-  'Smart Dispute Management',
-  'Merchant QR Onboarding & Management',
-  'Customer Support',
-]
+// Same list as the old website's product page.
+const features = oldServiceList
 
 const featureIcons = {
-  'Interoperable QR across RuPay, MasterCard & Visa': QrCode,
-  'Dynamic & Static QR Codes — No POS Machine Required': QrCode,
-  'UPI Collect & Intent Payment Flows': CreditCard,
-  'Instant Payment Confirmation & Notifications': RefreshCw,
+  'Supports Card Schemes like RUPAY, MasterCard, Visa and American Express': CreditCard,
+  'On Us Connectivity': Shield,
   'PCI-DSS Certified Infrastructure': Shield,
+  'Inter-Change Calculation': RefreshCw,
   'Reconciliation & Settlement': FileText,
+  'Merchant Payments': CreditCard,
   'Smart Dispute Management': Shield,
-  'Merchant QR Onboarding & Management': Monitor,
+  'Field Services & Terminal Deployment': Monitor,
   'Customer Support': Headphones,
 }
 
 export default function BharatQRPage() {
   return (
     <ProductPage
+      path="/products/BharatQR-UPI"
+      art="qr"
       hero={{ eyebrow: "Products", title: "Bharat QR &", highlight: "UPI", lead: "Decoding the puzzle to swift payment with interoperable QR solutions." }}
       overview={{
         icon: QrCode,

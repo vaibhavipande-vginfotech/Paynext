@@ -9,5 +9,5 @@ export const metadata = pageMeta("/solutions/atm-switching", {
 })
 
 export default function ATMPage() {
-  return <SolutionPage data={content.atm} eyebrow="ATM" title="ATM Switching" highlight="Solutions" />
+  return <SolutionPage path="/solutions/atm-switching" art="atm" data={content.atm} eyebrow="ATM" title="ATM Switching" highlight="Solutions" />
 }

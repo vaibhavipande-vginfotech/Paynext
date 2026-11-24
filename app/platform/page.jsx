@@ -36,10 +36,10 @@ export default function PlatformPage() {
           <Reveal className="mx-auto max-w-4xl text-center">
             <ol className="grid gap-3 sm:grid-cols-3">
               {platform.ambition.map((step, i) => (
-                <li key={step} className={`rounded-2xl border p-6 ${i === 2 ? "border-brand/50 bg-brand-soft" : "border-border bg-card"}`}>
+                <Reveal as="li" variant="scale" delay={i * 0.1} key={step} className={`hover-card rounded-2xl border p-6 ${i === 2 ? "border-brand/50 bg-brand-soft" : "border-border bg-card"}`}>
                   <span className="text-xs text-platinum">0{i + 1}</span>
                   <p className={`mt-2 text-lg font-semibold ${i === 2 ? "text-brand" : "text-foreground"}`}>{step}</p>
-                </li>
+                </Reveal>
               ))}
             </ol>
             <p className="mt-6 text-muted-foreground">{platform.ambitionLine}</p>
@@ -93,7 +93,7 @@ export default function PlatformPage() {
       </section>
 
       {/* Layers */}
-      <section className="border-y border-border bg-muted/50 py-24">
+      <section className="surface-lavender py-24">
         <Container>
           <div className="grid gap-5 lg:grid-cols-3">
             {layers.map((l, i) => (
@@ -125,20 +125,20 @@ export default function PlatformPage() {
       {/* Principles + audiences */}
       <section className="py-20">
         <Container className="space-y-8 text-center">
-          <Reveal className="flex flex-wrap justify-center gap-3">
-            {principles.map((p) => (
-              <span key={p} className="hover-chip rounded-full border border-brand/30 bg-brand-soft px-5 py-2.5 text-sm font-medium uppercase tracking-wider text-brand">
+          <div className="flex flex-wrap justify-center gap-3">
+            {principles.map((p, i) => (
+              <Reveal as="span" variant="scale" delay={i * 0.06} key={p} className="hover-chip rounded-full border border-brand/30 bg-brand-soft px-5 py-2.5 text-sm font-medium uppercase tracking-wider text-brand">
                 {p}
-              </span>
+              </Reveal>
             ))}
-          </Reveal>
-          <Reveal className="flex flex-wrap justify-center gap-3">
-            {audiences.map((a) => (
-              <span key={a.id} className="hover-chip flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium uppercase tracking-wider text-foreground">
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {audiences.map((a, i) => (
+              <Reveal as="span" variant="scale" delay={i * 0.06} key={a.id} className="hover-chip flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium uppercase tracking-wider text-foreground">
                 <a.icon className="h-4 w-4 text-brand" aria-hidden="true" /> {a.name}
-              </span>
+              </Reveal>
             ))}
-          </Reveal>
+          </div>
         </Container>
       </section>
 

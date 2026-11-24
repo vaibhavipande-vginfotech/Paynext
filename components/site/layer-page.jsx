@@ -19,6 +19,7 @@ export default function LayerPage({ id, extra }) {
         lead={layer.tag}
         primary={{ label: "Schedule a consultation", href: "/contact" }}
         secondary={{ label: platform.name, href: "/platform" }}
+        art={id === "vista" ? "dashboard" : id === "coconet" ? "team" : "code"}
       />
 
       <section className="py-24">
@@ -58,7 +59,7 @@ export default function LayerPage({ id, extra }) {
 
 export function CheckList({ title, eyebrow, items, footnote }) {
   return (
-    <section className="border-y border-border bg-muted/50 py-24">
+    <section className="surface-lavender py-24">
       <Container>
         <Reveal className="text-center">
           {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}

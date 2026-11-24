@@ -1,6 +1,5 @@
 import { Code, Globe, TrendingUp, Sprout, Mail } from 'lucide-react'
 import { Container, Eyebrow, Reveal, IconTile } from '@/components/site/primitives'
-import { Marquee } from '@/components/site/motion'
 import PageHero from '@/components/site/page-hero'
 import { careers, contact } from '@/lib/site-content'
 import { pageMeta } from '@/lib/seo'
@@ -17,7 +16,7 @@ const teams = ['Engineering', 'Product', 'Risk', 'Compliance', 'Sales']
 export default function CareersPage() {
   return (
     <>
-      <PageHero eyebrow="Careers" title="Join a team building" highlight="next-generation payment infrastructure." />
+      <PageHero eyebrow="Careers" title="Join a team building" highlight="next-generation payment infrastructure." art="team" />
 
       <section className="py-24">
         <Container>
@@ -35,17 +34,17 @@ export default function CareersPage() {
         </Container>
       </section>
 
-      <section className="border-y border-border bg-muted/50 py-16">
+      <section className="surface-lavender py-16">
         <Reveal className="text-center">
           <p className="mx-auto max-w-2xl px-5 text-lg text-foreground">{careers.welcome}</p>
         </Reveal>
-        <Marquee speed={30} className="mt-10">
-          {[...teams, ...teams].map((t, i) => (
-            <span key={t + i} className="hover-chip whitespace-nowrap rounded-full border border-border bg-card px-8 py-4 text-lg font-semibold text-brand">
+        <ul className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3 px-5">
+          {teams.map((t, i) => (
+            <Reveal as="li" variant="scale" delay={i * 0.07} key={t} className="hover-chip rounded-full border border-border bg-card px-7 py-3 text-lg font-semibold text-brand">
               {t}
-            </span>
+            </Reveal>
           ))}
-        </Marquee>
+        </ul>
       </section>
 
       <section className="py-24">

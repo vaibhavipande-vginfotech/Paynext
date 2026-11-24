@@ -36,6 +36,8 @@ const featureIcons = {
 export default function POSPage() {
   return (
     <ProductPage
+      path="/products/POS-MPOS"
+      art="pos"
       hero={{ eyebrow: "Products", title: "POS / MPOS", highlight: "Solutions", lead: "Simplify your business processes with our comprehensive POS solutions." }}
       overview={{
         icon: Monitor,

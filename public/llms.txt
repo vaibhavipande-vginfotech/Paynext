@@ -29,9 +29,19 @@ PayNext Private Limited is a B2B payment technology partner headquartered in Mum
 - [ATM Switching Solutions](https://paynext.co.in/solutions/atm-switching): OEM-compatible ATM switching across on-us, off-us and interoperable ATM networks.
 - [NCMC (National Common Mobility Card) Solutions](https://paynext.co.in/solutions/ncmc): NPCI-certified TSP for NCMC issuance & acquiring across metro, bus, toll and parking.
 - [NETC Switching](https://paynext.co.in/solutions/netc-switching): NPCI-certified NETC switching for FASTag issuance and acquiring across toll plazas and parking.
-- [POS / MPOS](https://paynext.co.in/products/POS-MPOS), [E-Commerce Gateway](https://paynext.co.in/products/E-commerceGateway), [Bharat QR & UPI](https://paynext.co.in/products/BharatQR-UPI)
+- [POS / MPOS](https://paynext.co.in/products/POS-MPOS): transaction processing, deployment and management, merchant analytics, reconciliation & back-office processing for banks and key financial institutions.
+- [E-Commerce Gateway](https://paynext.co.in/products/E-commerceGateway): real-time, secure online payments with fraud detection and prevention and a localised checkout experience.
+- [Bharat QR & UPI](https://paynext.co.in/products/BharatQR-UPI): interoperable dynamic and static QR payments across RuPay, Mastercard and Visa — no POS machine required.
+- [Other solutions](https://paynext.co.in/solutions#other-solutions): merchant smart onboarding, PCI compliance, portfolio management, transaction processing, faster settlement and funding, chargeback support, merchant statements, e-commerce acquiring, standard fraud reports, analytics / business intelligence, merchant portal and advanced reporting, advanced fraud management, new payment methods, tokenization and E2E encryption, accounting / ERP integration, integrated POS, loyalty programs, mobile recharge, consumer loan at POS, merchant access to financial services, omni-channel processing and reporting, BBPS support.
+
+## Industries served
+Banking and finance, department & retail, restaurants, grocery & mass merchandise, convenience (food services, car wash, fuel), telecom & technology. See [Who we serve](https://paynext.co.in/who-we-serve).
+
+## Why PayNext
+Where speed matters above everything else: end-to-end digital and automated payment solutions for connected and secure transactions. Clients choose PayNext because it is dependable (long-term relationships), experienced (manages complex back-end solutions and simplifies the front-end), offers extra value (effective and affordable solutions), and there is always a solution.
 
 ## Company
 - [About Us](https://paynext.co.in/about): vision — to power secure, scalable, and intelligent payment ecosystems; mission — to enable banks and fintechs with unified switching, operational intelligence, and routing infrastructure.
+- Founded 2017, Mumbai. Leadership: Maulik Joshi (Founder & Managing Director), Manoj Achrekar (Co-Founder & Project Director), Abhishek Mukhopadhyay (Co-Founder & Director, Technology & Infrastructure), Sulesh Sivan (Co-Founder & Director, Operations & Reconciliation). Promoters: Avinash Shende and Sachin Pande.
 - [Careers](https://paynext.co.in/careers)
 - [Contact Us](https://paynext.co.in/contact)

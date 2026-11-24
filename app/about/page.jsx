@@ -6,6 +6,7 @@ import PageHero from '@/components/site/page-hero'
 import CtaBand from '@/components/site/cta-band'
 import { about, brand, stats, statsExtra, clients, compliance } from '@/lib/site-content'
 import { pageMeta } from '@/lib/seo'
+import { legacy } from '@/lib/legacy-content'
 
 export const metadata = pageMeta("/about", {
   title: 'About Us | PayNext',
@@ -94,9 +95,55 @@ function MemberAvatar({ name, image }) {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="PayNext" title="About" highlight="Us" lead={about.intro} />
+      <PageHero
+        eyebrow="PayNext"
+        title="About"
+        highlight="Us"
+        lead={about.intro}
+        aside={
+          // Design 1 "About" hero: stat cards on the right
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-white/85">Trust &amp; Scale Metrics</p>
+            <dl className="grid grid-cols-2 gap-3">
+              {stats.map((s) => (
+                <div key={s.label} className="rounded-2xl bg-white p-5 text-[#1A1033] shadow-[0_16px_40px_-20px_rgba(18,8,46,0.5)]">
+                  <dd className="whitespace-nowrap text-2xl font-bold text-[#6A1BEA] sm:text-3xl"><CountUp value={s.value} /></dd>
+                  <dt className="mt-1 text-xs text-[#574F70]">{s.label}</dt>
+                </div>
+              ))}
+            </dl>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {statsExtra.map((s) => (
+                <li key={s} className="flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold text-white ring-1 ring-white/20">
+                  <Check className="h-3.5 w-3.5" aria-hidden="true" /> {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        }
+      />
 
-      <section className="py-24">
+      {/* Old website About page — "Speed is in our DNA" (verbatim) */}
+      <section className="pattern-grid py-24">
+        <Container className="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+          <Reveal variant="left">
+            <Eyebrow>About PayNext</Eyebrow>
+            <h2 className="mt-4 text-4xl leading-tight text-foreground sm:text-5xl">
+              Speed is in our <span className="text-brand-gradient">DNA</span>
+            </h2>
+            <div className="mt-8 space-y-4">
+              {legacy.dna.questions.map((q) => (
+                <p key={q} className="border-l-[3px] border-[#8030FD] pl-5 text-lg font-medium italic text-brand sm:text-xl">{q}</p>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal variant="right" className="rounded-3xl border border-border bg-card p-8 text-lg leading-relaxed text-muted-foreground shadow-[0_24px_60px_-32px_rgba(79,0,205,0.35)] sm:p-10">
+            {legacy.dna.text}
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="surface-lavender py-24">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center text-lg leading-relaxed text-muted-foreground">{brand.positioning}</Reveal>
           <div className="mt-14 grid gap-5 md:grid-cols-2">
@@ -114,7 +161,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-y border-border bg-muted/50 py-24">
+      <section className="py-24">
         <Container>
           <Reveal className="text-center">
             <Eyebrow>Core Values</Eyebrow>
@@ -130,41 +177,19 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-24">
+      <section className="surface-lavender py-24">
         <Container>
-          <Reveal className="text-center">
-            <Eyebrow>Trust &amp; Scale Metrics</Eyebrow>
-          </Reveal>
-          <dl className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 0.06} className="hover-card rounded-3xl border border-border bg-card p-7 text-center">
-                <dd className="text-3xl font-semibold text-brand-gradient sm:text-4xl"><CountUp value={s.value} /></dd>
-                <dt className="mt-3 text-sm text-muted-foreground">{s.label}</dt>
-              </Reveal>
-            ))}
-          </dl>
-          <Reveal className="mt-6 flex flex-wrap justify-center gap-3">
-            {statsExtra.map((s) => (
-              <span key={s} className="hover-chip flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
-                <Check className="h-4 w-4 text-growth" aria-hidden="true" /> {s}
-              </span>
-            ))}
-          </Reveal>
-        </Container>
-      </section>
-
-      <section className="border-y border-border bg-muted/50 py-24">
-        <Container>
-          <Reveal className="text-center">
+          <Reveal>
             <Eyebrow>Milestones</Eyebrow>
+            <h2 className="mt-4 text-3xl leading-tight text-foreground sm:text-[2.6rem]">Our journey</h2>
           </Reveal>
-          <ol className="relative mx-auto mt-12 max-w-3xl space-y-4 border-l border-border pl-8">
+          {/* Design 1 "Our journey" grid */}
+          <ol className="mt-12 grid gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
             {milestones.map((m, i) => (
-              <Reveal as="li" key={m.year} delay={(i % 3) * 0.05} className="hover-card relative rounded-2xl border border-border bg-card p-6">
-                <span className="absolute -left-[41px] top-7 h-4 w-4 rounded-full border-4 border-background bg-primary" aria-hidden="true" />
-                <p className="text-sm font-semibold text-brand">{m.year}</p>
-                <h3 className="mt-1 text-lg font-semibold text-foreground">{m.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{m.description}</p>
+              <Reveal as="li" key={m.year} delay={(i % 4) * 0.05} className="border-t-[3px] border-t-[#8030FD] pt-4">
+                <p className="text-xl font-bold text-brand">{m.year}</p>
+                <h3 className="mt-1 font-semibold text-foreground">{m.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.description}</p>
               </Reveal>
             ))}
           </ol>
@@ -175,7 +200,7 @@ export default function AboutPage() {
         { title: 'Meet the Core Team', people: team },
         { title: 'Meet the Promoters', people: promoters },
       ].map((group) => (
-        <section key={group.title} className="py-24 even:border-y even:border-border even:bg-muted/50">
+        <section key={group.title} className="py-24 even:bg-muted">
           <Container>
             <Reveal className="text-center">
               <Eyebrow>{group.title}</Eyebrow>

@@ -97,7 +97,7 @@ export default function Navbar() {
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname?.startsWith(href))
 
   // The scrolled background + blur live on their own layer, not on <header>: a backdrop-filter on
-  // <header> would trap the fixed mobile menu inside the 75px header box. All parts fade together.
+  // <header> would trap the fixed mobile menu inside the 63px header box. All parts fade together.
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
@@ -110,8 +110,8 @@ export default function Navbar() {
       />
       <div className="top-stripe h-[3px] w-full" aria-hidden="true" />
       <ScrollProgress />
-      <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-6 px-5 sm:px-6 lg:px-8" aria-label="Main">
-        <Logo className="h-7" />
+      <nav className="mx-auto flex h-[60px] max-w-7xl items-center justify-between gap-6 px-5 sm:px-6 lg:px-8" aria-label="Main">
+        <Logo className="h-6" />
 
         {/* Desktop */}
         <div className="hidden items-center gap-0.5 lg:flex xl:gap-1">

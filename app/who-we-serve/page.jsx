@@ -12,26 +12,33 @@ export const metadata = pageMeta("/who-we-serve", {
 })
 
 // Content from the current website — approved by the client (Sankar, 29 Sep 2026) for this
-// iteration; to be refined in the next iteration.
+// iteration; to be refined in the next iteration. Descriptions verbatim from the old home page.
 const industries = [
-  { icon: Building2, title: "Banking & Finance", desc: "Swift operations for business and retail banking — seamless customer experiences at every touchpoint." },
-  { icon: ShoppingCart, title: "Department & Retail", desc: "Personalisation, faster checkouts, convenience and consistency wherever your shoppers are." },
-  { icon: Utensils, title: "Restaurants", desc: "Digital service solutions that allow you to offer an unmatched dining experience to your customers." },
-  { icon: ShoppingBag, title: "Grocery & Mass Merchandise", desc: "Stand out in the crowd and build meaningful relationships with shoppers — new and returning." },
-  { icon: Fuel, title: "Convenience Industry", desc: "From food services and car wash to fuel — simplified payments to keep your customers moving." },
-  { icon: Wifi, title: "Telecom & Technology", desc: "Get your network to markets faster, maximise global presence and optimise the customer experience." },
+  { icon: Building2, title: "Banking & Finance", desc: "We help banks and other financial institutions run their operations at a swift pace. Business banking or retail—your customers can enjoy a seamless banking experience." },
+  { icon: ShoppingCart, title: "Department & Retail", desc: "Your shoppers want you to be wherever they are. We help you give your shoppers what they want—personalisation, faster checkouts, convenience, and consistency." },
+  { icon: Utensils, title: "Restaurants", desc: "When you’re running a restaurant, it’s all about the experience. Our digital service solutions allow you to offer an unmatched dining experience to your customers." },
+  { icon: ShoppingBag, title: "Grocery & Mass Merchandise", desc: "This industry is all about attracting new shoppers and retaining the old ones. We make you stand out in the crowd and help you build meaningful relationships with your customers." },
+  { icon: Fuel, title: "Convenience Industry", desc: "From food services and car wash to fuel expenses—we simplify the payment process to help your customers get going in no time." },
+  { icon: Wifi, title: "Telecom & Technology", desc: "Technology is driving the digital economy. And we’re here to get your network to the markets faster, maximise your global presence, and optimise the customer experience." },
 ]
 
 export default function WhoWeServePage() {
   return (
     <>
-      <PageHero eyebrow={platform.kicker} title="Who we" highlight="serve" lead={platform.lead} primary={{ label: "Schedule a consultation", href: "/contact" }} />
+      <PageHero
+        eyebrow={platform.kicker}
+        title="Who we"
+        highlight="serve"
+        lead={platform.lead}
+        primary={{ label: "Schedule a consultation", href: "/contact" }}
+        chips={audiences.map((a) => a.name)}
+      />
 
       <section className="py-24">
         <Container>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {audiences.map((a, i) => (
-              <Reveal key={a.id} delay={i * 0.06} className="hover-card rounded-3xl border border-border bg-card p-7 text-center">
+              <Reveal key={a.id} delay={i * 0.06} className="hover-card rounded-2xl border-t-[3px] border-t-[#8030FD] bg-muted p-7 text-center">
                 <IconTile icon={a.icon} className="mx-auto" />
                 <h2 className="mt-5 text-lg font-semibold uppercase tracking-wider text-foreground">{a.name}</h2>
               </Reveal>
@@ -43,7 +50,7 @@ export default function WhoWeServePage() {
         </Container>
       </section>
 
-      <section className="border-y border-border bg-muted/50 py-24">
+      <section className="surface-lavender py-24">
         <Container>
           <Reveal className="text-center">
             <Eyebrow>Industries We Work For</Eyebrow>

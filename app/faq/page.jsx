@@ -56,7 +56,7 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ questions & answers — client to provide */}
-      <section className="border-y border-border bg-muted/50 py-24">
+      <section className="surface-lavender py-24">
         <Container>
           <Placeholder label="FAQ" className="mx-auto max-w-4xl" />
         </Container>

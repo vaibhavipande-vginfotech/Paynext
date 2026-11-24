@@ -1,12 +1,12 @@
 import { Check } from "lucide-react"
 import { Container, Eyebrow, Reveal } from "@/components/site/primitives"
-import { Marquee } from "@/components/site/motion"
 import PageHero from "@/components/site/page-hero"
 import CtaBand from "@/components/site/cta-band"
 import Placeholder from "@/components/site/placeholder"
+import ServiceJsonLd from "@/components/site/service-json-ld"
 
 // Renders a solution page from lib/solutions-content.json (parsed verbatim from website-addtions.docx).
-export default function SolutionPage({ data, eyebrow, title, highlight }) {
+export default function SolutionPage({ data, eyebrow, title, highlight, art, path }) {
   const [heroLead, ...heroRest] = data.hero
   const keyFeatures = data.sections.find((s) => s.title === "Key Features")
   const others = data.sections.filter((s) => s !== keyFeatures)
@@ -24,6 +24,7 @@ export default function SolutionPage({ data, eyebrow, title, highlight }) {
 
   return (
     <>
+      {path && <ServiceJsonLd name={`${title} ${highlight || ""}`.trim()} description={data.meta || data.hero.join(" ")} path={path} />}
       <PageHero
         eyebrow={eyebrow}
         title={title}
@@ -31,6 +32,7 @@ export default function SolutionPage({ data, eyebrow, title, highlight }) {
         lead={[heroLead, ...heroRest].join(" ")}
         primary={{ label: "Schedule a consultation", href: "/contact" }}
         secondary={{ label: "All solutions", href: "/solutions" }}
+        art={art}
       />
 
       {data.overview.length > 0 && (
@@ -42,18 +44,6 @@ export default function SolutionPage({ data, eyebrow, title, highlight }) {
               ))}
             </Reveal>
           </Container>
-        </section>
-      )}
-
-      {keyFeatures && (
-        <section className="border-y border-border bg-muted/50 py-10" aria-label={keyFeatures.title}>
-          <Marquee speed={45}>
-            {keyFeatures.bullets.map((b) => (
-              <span key={b} className="hover-chip flex items-center gap-2 whitespace-nowrap rounded-full border border-border bg-card px-5 py-2.5 text-sm text-foreground">
-                <Check className="h-4 w-4 text-growth" aria-hidden="true" /> {b}
-              </span>
-            ))}
-          </Marquee>
         </section>
       )}
 
@@ -92,7 +82,7 @@ export default function SolutionPage({ data, eyebrow, title, highlight }) {
       </section>
 
       {keyFeatures && (
-        <section className="border-y border-border bg-muted/50 py-24">
+        <section className="surface-lavender py-24">
           <Container>
             <Reveal className="text-center">
               <Eyebrow>{keyFeatures.title}</Eyebrow>

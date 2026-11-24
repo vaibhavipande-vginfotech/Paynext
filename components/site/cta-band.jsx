@@ -8,7 +8,8 @@ export default function CtaBand() {
   return (
     <section className="py-20 sm:py-24">
       <Container>
-        <Reveal variant="scale" className="hero-violet relative overflow-hidden rounded-[2rem] px-6 py-14 sm:px-12 lg:py-16">
+        <Reveal variant="scale" className="hero-violet scroll-zoom relative overflow-hidden rounded-[2rem] px-6 py-14 sm:px-12 lg:py-16">
+          <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
           <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10" />
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 left-1/3 h-64 w-64 rounded-full bg-white/[0.07]" />
           <div className="relative grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
@@ -19,7 +20,7 @@ export default function CtaBand() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#4F00CD] shadow-[0_8px_24px_rgba(18,8,46,0.25)] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#6A1BEA] shadow-[0_8px_24px_rgba(18,8,46,0.25)] transition-transform hover:-translate-y-0.5"
                 >
                   Schedule a consultation <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>

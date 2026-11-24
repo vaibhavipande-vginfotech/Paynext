@@ -1,10 +1,11 @@
 import Link from "next/link"
 import { ArrowRight, Check, Server, ShieldCheck } from "lucide-react"
 import { Container, Eyebrow, Reveal } from "@/components/site/primitives"
-import { CountUp, Marquee } from "@/components/site/motion"
+import { CountUp } from "@/components/site/motion"
 import HomeHero from "@/components/site/home-hero"
 import SolutionsTabs from "@/components/site/solutions-tabs"
 import CtaBand from "@/components/site/cta-band"
+import WhyPayNext from "@/components/site/why-paynext"
 import {
   brand,
   platform,
@@ -13,14 +14,9 @@ import {
   stats,
   statsExtra,
   technology,
-  compliance,
   faqHighlights,
-  clients,
   layers,
   principles,
-  channelChips,
-  capabilityChips,
-  PLACEHOLDER,
   differentiation,
   audiences,
 } from "@/lib/site-content"
@@ -33,12 +29,11 @@ export const metadata = pageMeta("/", {
 
 // Phase 3 home page: a mix of Design 1 "Classic" (structure) and Design 2 "Bold" (hero, tabs, CTA).
 // All text comes from the client documents (see lib/site-content.js for sources).
-const networks = ["Visa", "Mastercard", "RuPay", "NPCI"]
 
 function GreenCheck() {
   return (
     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-growth">
-      <Check className="h-3 w-3 text-white dark:text-[#12082E]" strokeWidth={3} aria-hidden="true" />
+      <Check className="h-3 w-3 text-white dark:text-[#0E0D13]" strokeWidth={3} aria-hidden="true" />
     </span>
   )
 }
@@ -59,7 +54,7 @@ export default function HomePage() {
                   key={s.label}
                   className={`px-5 py-6 sm:px-7 ${i % 2 ? "border-l border-border" : ""} ${i > 1 ? "border-t border-border lg:border-t-0" : ""} ${i === 2 ? "lg:border-l" : ""}`}
                 >
-                  <dd className="whitespace-nowrap text-2xl font-bold text-brand sm:text-3xl xl:text-[2.15rem] xl:leading-tight">
+                  <dd className="whitespace-nowrap text-xl font-bold text-brand min-[400px]:text-2xl sm:text-3xl xl:text-[2.15rem] xl:leading-tight">
                     <CountUp value={s.value} />
                   </dd>
                   <dt className="mt-1 text-sm text-muted-foreground">{s.label}</dt>
@@ -67,65 +62,18 @@ export default function HomePage() {
               ))}
             </dl>
           </Reveal>
-          <Reveal className="mt-5 flex flex-wrap justify-center gap-3">
-            {statsExtra.map((s) => (
-              <span key={s} className="flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
+            {statsExtra.map((s, i) => (
+              <Reveal as="span" variant="scale" delay={0.1 + i * 0.06} key={s} className="hover-chip flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-foreground">
                 <GreenCheck /> {s}
-              </span>
+              </Reveal>
             ))}
-          </Reveal>
+          </div>
         </Container>
-      </section>
-
-      {/* NETWORKS + CLIENTS — Classic */}
-      <section className="pb-6 pt-16">
-        <Container className="text-center">
-          <Reveal>
-            <Eyebrow>Compliance &amp; Network Ecosystem</Eyebrow>
-            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-              {compliance.networks} {compliance.pci}
-            </p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2.5">
-              {[...networks, "PCI-DSS Compliant"].map((n) => (
-                <li key={n} className="flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground">
-                  <ShieldCheck className="h-4 w-4 text-brand" aria-hidden="true" /> {n}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal className="mt-14">
-            <Eyebrow>Client Ecosystem</Eyebrow>
-            <ul className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-x-9 gap-y-4">
-              {clients.map((c) => (
-                <li key={c} className="text-lg font-bold tracking-tight text-muted-foreground transition-colors hover:text-foreground">
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* CHANNELS + CAPABILITIES — moving chip rows (terms from the master doc and deck) */}
-      <section className="surface-lavender mt-16 space-y-3 border-y border-border py-8" aria-label="Channels and capabilities">
-        <Marquee speed={45}>
-          {channelChips.map((c) => (
-            <span key={c} className="whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground">
-              {c}
-            </span>
-          ))}
-        </Marquee>
-        <Marquee speed={55} reverse>
-          {capabilityChips.map((c) => (
-            <span key={c} className="whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground">
-              {c}
-            </span>
-          ))}
-        </Marquee>
       </section>
 
       {/* CORE PLATFORMS — Classic cards */}
-      <section className="py-24">
+      <section className="pattern-grid py-24">
         <Container>
           <Reveal className="max-w-3xl">
             <Eyebrow>Core Platforms Overview</Eyebrow>
@@ -137,10 +85,10 @@ export default function HomePage() {
               <Reveal
                 key={e.id}
                 delay={i * 0.08}
-                className="hover-card flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[0_10px_30px_-20px_rgba(79,0,205,0.25)]"
+                className="hover-card relative overflow-hidden flex flex-col rounded-3xl border border-border bg-card p-7 shadow-[0_10px_30px_-20px_rgba(79,0,205,0.25)] before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-[linear-gradient(90deg,#6A1BEA,#8030FD,#42BE5C)]"
               >
                 <div className="flex items-start justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#4F00CD,#8030FD)] text-lg font-bold text-white">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#6A1BEA,#8030FD)] text-lg font-bold text-white">
                     {e.name[0]}
                   </span>
                 </div>
@@ -165,7 +113,7 @@ export default function HomePage() {
       </section>
 
       {/* SOLUTIONS — Bold tabs with illustrations */}
-      <section className="pb-24">
+      <section>
         <Container>
           <Reveal className="mx-auto mb-10 max-w-3xl text-center">
             <Eyebrow>Products &amp; Solutions</Eyebrow>
@@ -178,8 +126,10 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <WhyPayNext />
+
       {/* STRATEGIC DIFFERENTIATION — Classic two-column with comparison card */}
-      <section className="surface-lavender py-24">
+      <section className="surface-lavender pattern-dots py-24">
         <Container className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal variant="left">
             <Eyebrow>Strategic Differentiation</Eyebrow>
@@ -189,18 +139,18 @@ export default function HomePage() {
             <p className="mt-5 text-lg text-muted-foreground">{differentiation.intro}</p>
           </Reveal>
           <Reveal variant="right" className="overflow-hidden rounded-3xl border border-border bg-card">
-            <div className="flex items-center justify-between bg-[linear-gradient(120deg,#4F00CD,#8030FD)] px-6 py-4 text-sm font-semibold text-white">
+            <div className="flex items-center justify-between bg-[linear-gradient(120deg,#6A1BEA,#8030FD)] px-6 py-4 text-sm font-semibold text-white">
               <span>Capability</span>
               <span>PayNext</span>
             </div>
             <ul>
-              {differentiation.points.map((pt) => (
-                <li key={pt} className="flex items-center justify-between gap-4 border-t border-border px-6 py-4 first:border-t-0">
+              {differentiation.points.map((pt, i) => (
+                <Reveal as="li" variant="left" delay={0.15 + i * 0.07} key={pt} className="flex items-center justify-between gap-4 border-t border-border px-6 py-4 transition-colors first:border-t-0 hover:bg-brand-soft">
                   <span className="font-medium text-foreground">{pt}</span>
                   <span className="flex items-center gap-2 text-sm font-semibold text-growth">
                     <Check className="h-4 w-4" strokeWidth={3} aria-hidden="true" /> Yes
                   </span>
-                </li>
+                </Reveal>
               ))}
             </ul>
           </Reveal>
@@ -210,7 +160,7 @@ export default function HomePage() {
       {/* PAYNEXT+ — Classic violet panel with the five pillars */}
       <section className="py-24">
         <Container>
-          <Reveal variant="scale" className="hero-violet relative overflow-hidden rounded-[2rem] px-6 py-14 sm:px-12">
+          <Reveal variant="scale" className="hero-violet scroll-zoom relative overflow-hidden rounded-[2rem] px-6 py-14 sm:px-12">
             <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-28 h-80 w-80 rounded-full bg-white/[0.07]" />
             <div className="relative">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
@@ -223,10 +173,10 @@ export default function HomePage() {
               <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                 {pillars.map((p, i) => (
                   <li key={p.id}>
-                    <Link href={`/platform#${p.id}`} className="block h-full rounded-2xl bg-white p-5 text-[#1A1033] transition-transform hover:-translate-y-1 dark:bg-[#1c1140] dark:text-white dark:ring-1 dark:ring-white/10">
-                      <span className="font-mono text-xs text-[#4F00CD] dark:text-[#C4A8FF]">0{i + 1}</span>
+                    <Link href={`/platform#${p.id}`} className="block h-full rounded-2xl bg-white p-5 text-[#1A1033] transition-transform hover:-translate-y-1">
+                      <span className="font-mono text-xs text-[#6A1BEA]">0{i + 1}</span>
                       <p className="mt-2 text-lg font-bold">{p.name}</p>
-                      <ul className="mt-2 space-y-1 text-xs leading-snug text-[#574F70] dark:text-[#C9BFEA]">
+                      <ul className="mt-2 space-y-1 text-xs leading-snug text-[#574F70]">
                         {p.lines.map((l) => (
                           <li key={l}>{l}</li>
                         ))}
@@ -243,9 +193,7 @@ export default function HomePage() {
                         <l.icon className="h-4 w-4" aria-hidden="true" /> {l.name}
                       </p>
                       <p className="mt-1 text-xs font-medium uppercase tracking-wider text-white/85">{l.tag}</p>
-                      {l.placeholder ? (
-                        <p className="mt-3 text-xs italic text-white/85">{PLACEHOLDER}</p>
-                      ) : (
+                      {l.lines.length > 0 && (
                         <ul className="mt-3 space-y-1 text-xs leading-snug text-white/90">
                           {l.lines.map((x) => (
                             <li key={x}>{x}</li>
@@ -260,7 +208,7 @@ export default function HomePage() {
               <ol className="mt-10 flex flex-col gap-3 text-sm sm:flex-row sm:items-center">
                 {platform.ambition.map((step, i) => (
                   <li key={step} className="flex items-center gap-3">
-                    <span className={`rounded-full px-4 py-2 font-semibold ${i === 2 ? "bg-white text-[#4F00CD]" : "border border-white/50 text-white"}`}>{step}</span>
+                    <span className={`rounded-full px-4 py-2 font-semibold ${i === 2 ? "bg-white text-[#6A1BEA]" : "border border-white/50 text-white"}`}>{step}</span>
                     {i < 2 && <ArrowRight className="hidden h-4 w-4 text-white/80 sm:block" aria-hidden="true" />}
                   </li>
                 ))}
@@ -269,7 +217,7 @@ export default function HomePage() {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href="/platform"
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#4F00CD] transition-transform hover:-translate-y-0.5"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#6A1BEA] transition-transform hover:-translate-y-0.5"
                 >
                   Explore {platform.name} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
@@ -311,7 +259,7 @@ export default function HomePage() {
       </section>
 
       {/* TECHNOLOGY + ENTERPRISE FAQ HIGHLIGHTS — Classic two cards */}
-      <section className="pb-4">
+      <section>
         <Container className="grid gap-5 lg:grid-cols-2">
           <Reveal variant="left" className="rounded-3xl border border-border bg-card p-8 sm:p-10">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft text-brand">
@@ -342,6 +290,7 @@ export default function HomePage() {
           </Reveal>
         </Container>
       </section>
+
 
       <CtaBand />
     </>

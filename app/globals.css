@@ -18,7 +18,7 @@
   --card-foreground: #1a1033;
   --popover: #ffffff;
   --popover-foreground: #1a1033;
-  --primary: #4f00cd;               /* logo violet, white text 9.5:1 */
+  --primary: #6a1bea;               /* brand purple (same in both themes), white text 6.9:1 */
   --primary-foreground: #ffffff;
   --secondary: #f1e8ff;
   --secondary-foreground: #1a1033;
@@ -30,29 +30,29 @@
   --destructive-foreground: #ffffff;
   --border: #ece4fb;
   --input: #ddd2f5;
-  --ring: #4f00cd;
+  --ring: #6a1bea;
 
-  --brand: #4f00cd;                 /* violet text 8:1+ on every light surface */
+  --brand: #6a1bea;                 /* violet text 6.4:1+ on every light surface */
   --brand-soft: #f1e8ff;
-  --platinum: #4f00cd;              /* eyebrow / small label */
+  --platinum: #6a1bea;              /* eyebrow / small label */
   --nav-text: #1a1033;
   --growth: #1e7a34;                /* "yes" / check green, 5.4:1 */
   --surface-raised: #ffffff;
   --hairline: rgba(79, 0, 205, 0.06);
-  --grad-from: #4f00cd;
+  --grad-from: #6a1bea;
   --grad-to: #8030fd;
   --glow-1: rgba(79, 0, 205, 0.14);
   --glow-2: rgba(128, 48, 253, 0.12);
-  --stripe: linear-gradient(90deg, #4f00cd, #8030fd);
-  --btn-bg: #4f00cd;
+  --stripe: linear-gradient(90deg, #6a1bea, #8030fd);
+  --btn-bg: #6a1bea;
   --btn-text: #ffffff;
   --btn-shadow: 0 8px 22px rgba(79, 0, 205, 0.28);
   --btn2-bg: #ffffff;
-  --btn2-text: #4f00cd;
+  --btn2-text: #6a1bea;
   --btn2-border: 1.5px solid #ddd2f5;
   --icon-btn-bg: #ffffff;
   --page-bg: #ffffff;
-  --hero-bg: linear-gradient(120deg, #4f00cd 0%, #6a1bea 55%, #8030fd 100%);
+  --hero-bg: linear-gradient(120deg, #5a0fdc 0%, #6a1bea 50%, #8030fd 100%);
   /* illustration palette (switches with the theme) */
   --art-bg: #f1e8ff;
   --art-c1: #e3d5ff;
@@ -83,38 +83,38 @@
 
 /* Dark */
 .dark {
-  --background: #0f0726;
+  --background: #0e0d13;
   --foreground: #ffffff;
-  --card: #1c1140;
+  --card: #17161e;
   --card-foreground: #ffffff;
-  --popover: #1c1140;
+  --popover: #17161e;
   --popover-foreground: #ffffff;
   --primary: #6a1bea;               /* white text 7.1:1 */
   --primary-foreground: #ffffff;
   --secondary: rgba(255, 255, 255, 0.08);
   --secondary-foreground: #ffffff;
-  --muted: #160b33;                 /* section bands, a step lighter than the page */
-  --muted-foreground: #c9bfea;      /* 10:1 on cards */
+  --muted: #14131a;                 /* section bands, a step lighter than the page */
+  --muted-foreground: #c3c0cf;      /* 10:1 on cards */
   --accent: #c4a8ff;
   --accent-foreground: #12082e;
   --destructive: #ef5350;
   --destructive-foreground: #ffffff;
-  --border: rgba(183, 155, 255, 0.18);
-  --input: rgba(183, 155, 255, 0.28);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.16);
   --ring: #b79bff;
 
   --brand: #b79bff;                 /* light violet text, 6.5:1+ */
-  --brand-soft: rgba(128, 48, 253, 0.18);
+  --brand-soft: rgba(106, 27, 234, 0.18);
   --platinum: #c4a8ff;
   --nav-text: rgba(255, 255, 255, 0.86);
   --growth: #6ee7a0;
-  --surface-raised: #261753;
+  --surface-raised: #1d1c25;
   --hairline: rgba(255, 255, 255, 0.05);
-  --grad-from: #b79bff;
-  --grad-to: #e4dcf8;
+  --grad-from: #a98bff;
+  --grad-to: #e9e1ff;
   --glow-1: rgba(128, 48, 253, 0.3);
   --glow-2: rgba(79, 0, 205, 0.3);
-  --stripe: linear-gradient(90deg, #4f00cd, #8030fd);
+  --stripe: linear-gradient(90deg, #6a1bea, #8030fd);
   --btn-bg: #6a1bea;
   --btn-text: #ffffff;
   --btn-shadow: 0 8px 22px rgba(128, 48, 253, 0.3);
@@ -122,20 +122,17 @@
   --btn2-text: #ffffff;
   --btn2-border: 1px solid rgba(201, 191, 234, 0.28);
   --icon-btn-bg: rgba(255, 255, 255, 0.1);
-  --page-bg:
-    radial-gradient(60% 40% at 85% 0%, rgba(128, 48, 253, 0.16), transparent 70%),
-    radial-gradient(50% 35% at 0% 45%, rgba(79, 0, 205, 0.12), transparent 70%),
-    #0f0726;
-  --hero-bg: linear-gradient(120deg, #3a0a9c 0%, #4f00cd 55%, #6a1bea 100%);
-  --art-bg: #221548;
-  --art-c1: #2d1c66;
-  --art-c2: #281959;
-  --art-card: #1c1140;
-  --art-line: #43308a;
+  --page-bg: #0e0d13;
+  --hero-bg: linear-gradient(120deg, #5a0fdc 0%, #6a1bea 50%, #8030fd 100%); /* same purple as light */
+  --art-bg: #1b1a23;
+  --art-c1: #24222f;
+  --art-c2: #211f2b;
+  --art-card: #17161e;
+  --art-line: #363345;
   --art-ink: #ffffff;
   --art-accent: #c4a8ff;
-  --art-device: #3a2a80;
-  --art-key: #5a47a8;
+  --art-device: #2c2a3a;
+  --art-key: #4a4660;
 
   --chart-1: #8030fd;
   --chart-2: #b79bff;
@@ -143,7 +140,7 @@
   --chart-4: rgba(255, 255, 255, 0.8);
   --chart-5: #42be5c;
 
-  --sidebar: #1c1140;
+  --sidebar: #17161e;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #6a1bea;
   --sidebar-primary-foreground: #ffffff;
@@ -437,4 +434,257 @@ html[data-scroll-behavior="smooth"] {
   .pn-dash {
     animation: none;
   }
+}
+
+/* ───────────── Phase 3 polish: spotlight, shine, arrows, scroll-linked motion ───────────── */
+
+/* Cards: a soft violet spotlight follows the pointer (position set by PointerGlow). */
+@property --spot {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: transparent;
+}
+.hover-card {
+  --spot: transparent;
+  background-image: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--spot), transparent 45%);
+  transition:
+    translate 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    --spot 0.4s ease;
+}
+.hover-card:hover {
+  --spot: color-mix(in srgb, #8030fd 11%, transparent);
+}
+.dark .hover-card:hover {
+  --spot: color-mix(in srgb, #a98bff 14%, transparent);
+}
+
+/* Solid pill buttons: a light sheen sweeps across on hover. */
+:is(a, button).rounded-full:is(.bg-primary, .bg-white):not(.sr-only) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+:is(a, button).rounded-full:is(.bg-primary, .bg-white)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  translate: -120% 0;
+  transition: translate 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+:is(a, button).rounded-full.bg-white::after {
+  background: linear-gradient(110deg, transparent 30%, rgba(128, 48, 253, 0.16) 50%, transparent 70%);
+}
+:is(a, button).rounded-full:is(.bg-primary, .bg-white):hover::after {
+  translate: 120% 0;
+}
+
+/* Arrow icons inside links nudge forward on hover. */
+a svg.lucide-arrow-right,
+a svg.lucide-arrow-up-right {
+  transition: translate 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+a:hover svg.lucide-arrow-right {
+  translate: 4px 0;
+}
+a:hover svg.lucide-arrow-up-right {
+  translate: 3px -3px;
+}
+
+/* Illustrations zoom gently when their card is hovered. */
+.art-zoom svg {
+  transition: scale 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.art-zoom:hover svg {
+  scale: 1.04;
+}
+
+/* Eyebrow accent bar that draws in when the heading reveals. */
+.eyebrow-bar {
+  display: block;
+  height: 3px;
+  width: 44px;
+  margin: 14px auto 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #4f00cd, #8030fd);
+  transform-origin: left;
+}
+
+/* Scroll-linked (Chromium/Safari 18+): illustrations drift slightly as they pass through the viewport;
+   the soft hero circles drift as the page scrolls. Unsupported browsers just show them static. */
+@supports (animation-timeline: view()) {
+  @keyframes pn-parallax {
+    from {
+      translate: 0 28px;
+    }
+    to {
+      translate: 0 -28px;
+    }
+  }
+  .parallax {
+    animation: pn-parallax linear both;
+    animation-timeline: view();
+  }
+  @keyframes pn-drift {
+    to {
+      translate: 0 120px;
+      scale: 1.25;
+    }
+  }
+  .scroll-drift {
+    animation: pn-drift linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 600px;
+  }
+  /* Big violet panels grow into place as they scroll into view. */
+  @keyframes pn-zoom {
+    from {
+      scale: 0.9;
+      opacity: 0.5;
+    }
+    to {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+  .scroll-zoom {
+    animation: pn-zoom linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+  /* Section headings slide in from slightly lower as they enter. */
+  @keyframes pn-rise {
+    from {
+      translate: 0 40px;
+    }
+    to {
+      translate: 0 0;
+    }
+  }
+  .scroll-rise {
+    animation: pn-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax,
+  .scroll-drift,
+  .scroll-zoom,
+  .scroll-rise {
+    animation: none !important;
+  }
+  :is(a, button).rounded-full:is(.bg-primary, .bg-white)::after,
+  .art-zoom:hover svg,
+  a:hover svg.lucide-arrow-right,
+  a:hover svg.lucide-arrow-up-right {
+    translate: none;
+    scale: none;
+  }
+}
+
+
+/* ───────────── Home hero: aurora glow, grid, shimmer ───────────── */
+.hero-aurora::before,
+.hero-aurora::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+.hero-aurora::before {
+  width: 520px;
+  height: 520px;
+  top: -180px;
+  right: -120px;
+  background: radial-gradient(circle, rgba(196, 168, 255, 0.55), transparent 65%);
+  animation: pn-aurora-a 14s ease-in-out infinite alternate;
+}
+.hero-aurora::after {
+  width: 460px;
+  height: 460px;
+  bottom: -220px;
+  left: -140px;
+  background: radial-gradient(circle, rgba(66, 190, 92, 0.22), transparent 65%);
+  animation: pn-aurora-b 18s ease-in-out infinite alternate;
+}
+@keyframes pn-aurora-a {
+  to { translate: -140px 90px; scale: 1.15; }
+}
+@keyframes pn-aurora-b {
+  to { translate: 160px -70px; scale: 1.2; }
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 70% at 70% 40%, #000 20%, transparent 75%);
+}
+.hero-shimmer {
+  background: linear-gradient(100deg, #ffffff 20%, #d9c7ff 40%, #ffffff 60%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pn-shimmer 6s linear infinite;
+}
+@keyframes pn-shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -150% 0; }
+}
+
+/* ───────────── Section patterns ───────────── */
+.pattern-dots {
+  position: relative;
+  isolation: isolate;
+}
+.pattern-dots::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(color-mix(in srgb, var(--brand) 22%, transparent) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, #000, transparent 70%);
+}
+.pattern-grid {
+  position: relative;
+  isolation: isolate;
+}
+.pattern-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--brand) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--brand) 9%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, #000, transparent 80%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora::before,
+  .hero-aurora::after,
+  .hero-shimmer {
+    animation: none !important;
+  }
+}
+
+/* "Total Control." in the home hero follows the theme: light text in light mode, dark text in dark mode. */
+.hero-accent {
+  color: #ffffff;
+}
+.dark .hero-accent {
+  color: #0e0d13;
 }

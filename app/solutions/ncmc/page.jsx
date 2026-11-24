@@ -9,5 +9,5 @@ export const metadata = pageMeta("/solutions/ncmc", {
 })
 
 export default function NCMCPage() {
-  return <SolutionPage data={content.ncmc} eyebrow="NCMC" title="NCMC (National Common Mobility Card)" highlight="Solutions" />
+  return <SolutionPage path="/solutions/ncmc" art="transit" data={content.ncmc} eyebrow="NCMC" title="NCMC (National Common Mobility Card)" highlight="Solutions" />
 }

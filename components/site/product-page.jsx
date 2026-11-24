@@ -4,24 +4,35 @@ import { Button } from "@/components/ui/button"
 import { Container, Reveal, IconTile, SectionHeader } from "@/components/site/primitives"
 import PageHero from "@/components/site/page-hero"
 import CtaBand from "@/components/site/cta-band"
+import { Art } from "@/components/site/art"
+import ServiceJsonLd from "@/components/site/service-json-ld"
 
 // Shared layout for the individual product pages (POS / MPOS, E-Commerce Gateway, Bharat QR & UPI).
 // All wording is passed in from the page files.
-export default function ProductPage({ hero, overview, services, related }) {
+export default function ProductPage({ hero, overview, services, related, art, path }) {
   return (
     <>
-      <PageHero eyebrow={hero.eyebrow} title={hero.title} highlight={hero.highlight} lead={hero.lead} />
+      {path && <ServiceJsonLd name={`${hero.title} ${hero.highlight || ""}`.trim()} description={overview.paragraphs[0]} path={path} />}
+      <PageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        highlight={hero.highlight}
+        lead={hero.lead}
+        art={art}
+        primary={{ label: "Schedule a consultation", href: "/contact" }}
+        secondary={{ label: "All products", href: "/products" }}
+      />
 
+      {/* Overview — Design 2 alternating text + illustration row */}
       <section className="py-24">
-        <Container>
-          <Reveal className="hover-card grid gap-8 rounded-3xl border border-border bg-card p-8 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
-            <div className="min-w-0">
-              <IconTile icon={overview.icon} />
-              <h2 className="mt-6 break-words text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
-                {overview.title}
-              </h2>
-            </div>
-            <div className="min-w-0 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <Container className="grid items-center gap-12 lg:grid-cols-2">
+          <Reveal variant="left" className="parallax mx-auto w-full max-w-lg lg:order-2">
+            <div className="parallax art-zoom"><Art kind="dashboard" /></div>
+          </Reveal>
+          <Reveal variant="right" className="min-w-0">
+            <IconTile icon={overview.icon} />
+            <h2 className="mt-6 break-words text-3xl leading-tight text-foreground sm:text-4xl">{overview.title}</h2>
+            <div className="mt-5 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               {overview.paragraphs.map((p) => (
                 <p key={p}>{p}</p>
               ))}
@@ -30,7 +41,7 @@ export default function ProductPage({ hero, overview, services, related }) {
         </Container>
       </section>
 
-      <section className="border-y border-border bg-muted/50 py-24">
+      <section className="surface-lavender py-24">
         <Container>
           <SectionHeader eyebrow={services.eyebrow} title={services.title} highlight={services.highlight} />
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

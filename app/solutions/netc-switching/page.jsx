@@ -9,5 +9,5 @@ export const metadata = pageMeta("/solutions/netc-switching", {
 })
 
 export default function NETCPage() {
-  return <SolutionPage data={content.netc} eyebrow="NETC" title="NETC" highlight="switching solutions" />
+  return <SolutionPage path="/solutions/netc-switching" art="toll" data={content.netc} eyebrow="NETC" title="NETC" highlight="switching solutions" />
 }

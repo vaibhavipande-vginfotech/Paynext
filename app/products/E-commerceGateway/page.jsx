@@ -1,5 +1,6 @@
 import { Globe, CreditCard, Shield, RefreshCw, FileText, Headphones, Monitor, QrCode } from 'lucide-react'
 import ProductPage from '@/components/site/product-page'
+import { oldServiceList } from '@/lib/legacy-content'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata = pageMeta("/products/E-commerceGateway", {
@@ -7,35 +8,26 @@ export const metadata = pageMeta("/products/E-commerceGateway", {
   description: 'Instant & hassle-free online payment solutions. Secure, real-time transactions with best-in-class fraud detection for your e-commerce business.',
 })
 
-const features = [
-  'Supports Card Schemes: RuPay, MasterCard, Visa & American Express',
-  'Multiple Payment Modes — Cards, Net Banking, UPI & Wallets',
-  'PCI-DSS Certified Infrastructure',
-  'Best-in-Class Fraud Detection & Prevention',
-  'Tokenization & End-to-End Encryption',
-  'Seamless, Localised Checkout Experience',
-  'Reconciliation & Settlement',
-  'Smart Dispute & Chargeback Management',
-  'Developer-Friendly APIs & SDKs',
-  'Customer Support',
-]
+// Same list as the old website's product page.
+const features = oldServiceList
 
 const featureIcons = {
-  'Supports Card Schemes: RuPay, MasterCard, Visa & American Express': CreditCard,
-  'Multiple Payment Modes — Cards, Net Banking, UPI & Wallets': QrCode,
+  'Supports Card Schemes like RUPAY, MasterCard, Visa and American Express': CreditCard,
+  'On Us Connectivity': Shield,
   'PCI-DSS Certified Infrastructure': Shield,
-  'Best-in-Class Fraud Detection & Prevention': Shield,
-  'Tokenization & End-to-End Encryption': Shield,
-  'Seamless, Localised Checkout Experience': Globe,
+  'Inter-Change Calculation': RefreshCw,
   'Reconciliation & Settlement': FileText,
-  'Smart Dispute & Chargeback Management': RefreshCw,
-  'Developer-Friendly APIs & SDKs': Monitor,
+  'Merchant Payments': CreditCard,
+  'Smart Dispute Management': Shield,
+  'Field Services & Terminal Deployment': Monitor,
   'Customer Support': Headphones,
 }
 
 export default function EcommerceGatewayPage() {
   return (
     <ProductPage
+      path="/products/E-commerceGateway"
+      art="ecom"
       hero={{ eyebrow: "Products", title: "E-Commerce", highlight: "Gateway", lead: "Instant & hassle-free online payment solutions for your e-commerce business." }}
       overview={{
         icon: Globe,

@@ -4,6 +4,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
 import { BackToTop } from '@/components/site/scroll-extras'
+import PointerGlow from '@/components/site/pointer-glow'
 import JsonLd from '@/components/site/json-ld'
 import BreadcrumbJsonLd from '@/components/site/breadcrumb-json-ld'
 import { SITE_URL, OG_IMAGE } from '@/lib/seo'
@@ -52,7 +53,7 @@ export const metadata = {
 export const viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
-    { media: '(prefers-color-scheme: dark)', color: '#12082E' },
+    { media: '(prefers-color-scheme: dark)', color: '#0E0D13' },
   ],
 }
 
@@ -122,6 +123,7 @@ export default function RootLayout({ children }) {
           <main id="content">{children}</main>
           <Footer />
           <BackToTop />
+          <PointerGlow />
         </ThemeProvider>
 
         <Analytics />

@@ -14,14 +14,22 @@ export function Eyebrow({ children, className = "" }) {
 export function SectionHeader({ eyebrow, title, highlight, lead, align = "center", className = "" }) {
   const alignCls = align === "center" ? "mx-auto text-center" : ""
   return (
-    <Reveal className={`max-w-3xl ${alignCls} ${className}`}>
-      {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
-      <h2 className="text-3xl font-semibold leading-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
+    <div className={`scroll-rise max-w-3xl ${alignCls} ${className}`}>
+      {eyebrow && (
+        <Reveal variant="fade" className="mb-4">
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </Reveal>
+      )}
+      <Reveal as="h2" delay={0.06} className="text-3xl font-semibold leading-tight text-foreground sm:text-4xl lg:text-[2.75rem]">
         {title}
         {highlight && <> <span className="text-brand-gradient">{highlight}</span></>}
-      </h2>
-      {lead && <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">{lead}</p>}
-    </Reveal>
+      </Reveal>
+      {lead && (
+        <Reveal as="p" delay={0.14} className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          {lead}
+        </Reveal>
+      )}
+    </div>
   )
 }
 
