@@ -1,6 +1,5 @@
 import { ShoppingCart, Utensils, ShoppingBag, Fuel, Wifi, Building2 } from "lucide-react"
 import { Container, Eyebrow, Reveal, IconTile } from "@/components/site/primitives"
-import { Globe } from "@/components/site/motion"
 import PageHero from "@/components/site/page-hero"
 import CtaBand from "@/components/site/cta-band"
 import { audiences, clients, platform } from "@/lib/site-content"
@@ -44,9 +43,6 @@ export default function WhoWeServePage() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-12 flex justify-center">
-            <Globe size={220} />
-          </Reveal>
         </Container>
       </section>
 

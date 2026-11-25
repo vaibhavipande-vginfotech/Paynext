@@ -118,57 +118,6 @@ function Rings() {
   )
 }
 
-/* ───────────────── Rotating dotted globe ───────────────── */
-export function Globe({ size = 280, className = "" }) {
-  const reduce = useReducedMotion()
-  const [rot, setRot] = useState(0)
-  useEffect(() => {
-    if (reduce) return
-    let raf
-    let last = performance.now()
-    const tick = (now) => {
-      setRot((r) => (r + (now - last) * 0.012) % 360)
-      last = now
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [reduce])
-
-  const R = size / 2 - 6
-  const pts = []
-  for (let lat = -80; lat <= 80; lat += 10) {
-    const ring = Math.max(6, Math.round(36 * Math.cos((lat * Math.PI) / 180)))
-    for (let k = 0; k < ring; k++) {
-      const lon = (k / ring) * 360 + rot
-      const la = (lat * Math.PI) / 180
-      const lo = (lon * Math.PI) / 180
-      const z = Math.cos(la) * Math.cos(lo)
-      if (z < -0.05) continue
-      pts.push({
-        x: (size / 2 + R * Math.cos(la) * Math.sin(lo)).toFixed(2),
-        y: (size / 2 - R * Math.sin(la)).toFixed(2),
-        o: (0.25 + 0.75 * Math.max(0, z)).toFixed(2),
-      })
-    }
-  }
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className={className} aria-hidden="true">
-      <defs>
-        <radialGradient id="globe-fill" cx="40%" cy="35%" r="70%">
-          <stop offset="0" stopColor="#B79BFF" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#12082E" stopOpacity="0.95" />
-        </radialGradient>
-      </defs>
-      <circle cx={size / 2} cy={size / 2} r={R} fill="url(#globe-fill)" />
-      {pts.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r="1.4" fill="#ffffff" opacity={p.o} />
-      ))}
-      <circle cx={size / 2} cy={size / 2} r={R} fill="none" stroke="rgba(255,255,255,0.25)" />
-    </svg>
-  )
-}
-
 /* ───────────────── Count-up for stat values (keeps any prefix/suffix text) ───────────────── */
 export function CountUp({ value, className = "" }) {
   const ref = useRef(null)
